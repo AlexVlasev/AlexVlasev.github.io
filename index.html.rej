@@ -1,0 +1,9 @@
+diff a/index.html b/index.html	(rejected hunks)
+@@ -15,7 +15,6 @@
+ </div>
+ 
+ <div class="navigation">
+-    <div class="nav-alignment">
+     <div style="margin-left: 40px">
+         <a href="math.html" class="pretty-link"><div class="button">Mathematics</div></a>
+         <a href="programming.html" class="pretty-link"><div class="button">Programming</div></a>
