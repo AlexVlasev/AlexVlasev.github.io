@@ -23,6 +23,8 @@ body {
     border-radius: 10px;
     background-color: #E3E3E3;
     margin: auto;
+    position: relative;
+    bottom: -5px;
 }
 
 .line {
@@ -63,7 +65,7 @@ a {
     font-weight: bold;
     display: inline;
     position: relative;
-    top: 13px;
+    top: 11px;
 }
 
 .button-active {
@@ -79,7 +81,7 @@ a {
     font-weight: bold;
     display: inline;
     position: relative;
-    top: 13px;
+    top: 11px;
 }
 
 .pretty-link {
@@ -97,4 +99,15 @@ a {
 
 .pretty-link:hover {
     color: white;
+}
+
+.nav-alignment {
+    margin-left: 70px;
+    position: relative;
+    bottom: -7px;
+}
+
+.banner-pos {
+    position: relative;
+    top: 15%;
 }
