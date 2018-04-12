@@ -67,314 +67,321 @@
     </div>
   </nav>
 
+
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+
+      \(\newcommand{\mc}[1]{\mathrm{\mathcal{#1}}} \newcommand{\inn}[1]{\langle #1 \!\; \rangle} \newcommand{\dd}{\; \mathrm{d}} \newcommand{\delpt}{\nabla_{pt}} \newcommand{\delz}{\nabla_z}\newcommand{\del}{\partial} \newcommand{\ve}{\vec{\mc{E}}} \newcommand{\vh}{\vec{\mc{H}}} \newcommand{\vE}{\vec{E}} \newcommand{\vH}{\vec{H}} \newcommand{\e}{\epsilon} \newcommand{\om}{\omega} \newcommand{\Om}{\Omega}\)
+
+      <h2>Linear Operators in the Theory of Electromagnetism</h2>
+
+      This is a topic I worked on during an undergraduate research term at Simon Fraser University. WARNING: The rest of the page is really math-heavy and I have not skipped much in terms of the computations. These are my notes on the electromagnetic operators associated with light propagation into optical fiber. The work here is inspired by several papers on such propagation used to simulate black hole behaviour within the laser pulse. References and clarifications of the material will be added in later.
+
+      1. Introducing Operators and Notation
+
+      Let \(f = [f_1\;\;f_2]^T\) and \(g = [g_1\;\;g_2]^T\) where the the entries are complex vector functions in \(x,y,z,t\). We define an inner-product
+      $$
+          \inn{f,g} = \iint_S f_1^*\cdot g_1+f_2^* \cdot g_2 \dd s
+      $$
+
+      where \(S\) is a plane paralelel to the \(xy\)-plane that has the point \((0,0,z)\). This inner product has some nice properties
+
+      \begin{align*}
+      \inn{f,g}^* &= \inn{g,f}\\
+      \inn{af,bg} &= a^*b \inn{f,g}\\
+      \inn{f+f', g} &= \inn{f,g}+\inn{f',g}\\
+      \inn{f,g+g'} &= \inn{f,g}+\inn{f,g'}
+      \end{align*}
+
+
+      Now we split some operators. Let
+      $$
+          \nabla = \nabla_p + \nabla_z
+      $$
+      where
+      $$
+          \nabla_{pt} =  \hat{x}\del_x+\hat{y} \del_y\quad\text{and}\quad \nabla_z = \hat{z}\del_z
+      $$
+      They have the usual properties of the gradient operator. Let an index \(m\) and a frequency \(\om\) be given with the following shorthand definitions
+      \begin{align*}
+      \ve_{m\om} &= \ve_m = \ve_{m\om}(x,y)\exp(i(\beta_{n\om}z-\om t)\\
+      \vh_{m\om} &= \vh_m = \vh_{m\om}(x,y)\exp(i(\beta_{n\om}z-\om t)\\
+      \end{align*}
+      They satisfy Maxwell's equations
+      \begin{align*}
+      \nabla\times \ve_m &= -\mu_0 \del_t \vh_m = i\om \mu_0 \vh_m\\
+      \nabla \times \vh_m &= \e_0\del_t\e*\ve_m = - i \om \e_0\e*\ve_m
+      \end{align*}
+      Now we have \(\del_z \ve_m = i\beta_{m\om}\ve_m\) so
+      \begin{align*}
+      \delz \times \ve_m = \hat{z}\del_z\times \ve_m = \hat{z}\times \del_z \ve_m = -i \beta_{m\om} \hat{z} \times \ve_m
+      \end{align*}
+      It works the same way for \(\vh_m\). Thus for a fixed \(m\) and \(\om\) we have
+      $$
+         \delz \times \equiv i\beta_{m\om} \hat{z} \times
+      $$
+      Next we write the operators
+      \begin{align*}
+      \Gamma_p &= \begin{bmatrix}0 & \delpt\times \\ \delpt\times & 0 \end{bmatrix},\quad \Gamma_z = \begin{bmatrix}0 & i\hat{z}\times \\ i\hat{z}\times & 0 \end{bmatrix} \\
+      T &= \begin{bmatrix}\e_0\e* & 0 \\ 0 & -\mu_0 \end{bmatrix},\quad \mc{L}_{\om} = wT - \Gamma_p =  \begin{bmatrix}w\e_0\e* &-\delpt\times  \\ -\delpt\times & -w\mu_0 \end{bmatrix}
+      \end{align*}
+      These operators will act on the following vectors
+      $$
+         \phi_{m\om} =\begin{bmatrix}\ve_{m\om} \\ i\vh_{m\om}\end{bmatrix} = \begin{bmatrix}\ve_m \\ i\vh_m\end{bmatrix}
+      $$
+      With these we obtain Maxwell's equations in an operator form
+      $$
+          (\mc{L}_{\om}-\beta_{m\om}\Gamma_z)\phi_{m\om} = 0
+      $$
+      We use \(\inn{\cdot,\cdot}\) to define an adjointnes relation for a fixed \(\om\)
+      $$
+         \inn{\phi^+,\mc{L}_{\om} \phi} = \inn{\mc{L}_{\om}^+\phi^+, \phi}
+      $$
+      Let \(\phi_n^+\) be a solution to \((\mc{L}_{\om}^+-\beta_{n\om}^*\Gamma_z)\phi_n^+ = 0\). Let \(\phi_m\) be a solution to \((\mc{L}_{\om}-\beta_{m\om}\Gamma_z)\phi_m = 0\).
+
+      First, we show that
+      \begin{equation}
+      \inn{\Gamma_z\phi_n^+,\phi_m} = \inn{\phi_n^+,\Gamma_z\phi_m}
+      \end{equation}
+      We have
+      \begin{align*}
+         \Gamma_z \phi_n^+ &= \begin{bmatrix} 0 & i\hat{z}\times \\ i\hat{z} \times & 0 \end{bmatrix}\begin{bmatrix}\ve_n^+ \\ i\vh_n^+\end{bmatrix} = \begin{bmatrix} \hat{z}\times(-\vh_n^+) \\ i\hat{z} \times \ve_n^+ \end{bmatrix}\\
+         \Gamma_z \phi_m &= \begin{bmatrix} 0 & i\hat{z}\times \\ i\hat{z} \times & 0 \end{bmatrix}\begin{bmatrix}\ve_m \\ i\vh_m\end{bmatrix} = \begin{bmatrix} \hat{z}\times(-\vh_m) \\ i\hat{z} \times \ve_m\end{bmatrix}
+      \end{align*}
+      Forming the inner products \(\inn{\Gamma_z\phi_n^+,\phi_m}\) and \(\inn{\phi_n^+,\Gamma_z \phi_m}\) gives us what we need.
+      \begin{align*}
+      \inn{\Gamma_z \phi_n^+, \phi_m} &= \iint_S \hat{z}\times(-\vh_n^+)^*\cdot\ve_m + \hat{z}\times\ve_n^{+*}\cdot\vh_m \dd s = \\
+                                                              &= \iint_S \hat{z} \cdot \left( \ve_m\times \vh_n^{+*}  + \ve_n^{+*}\times \vh_m \right)\dd s     \\
+      \inn{\phi_n^+, \Gamma_z \phi_m} &= \iint_S \ve_n^{+*}\cdot\hat{z}\times(-\vh_m) + \vh_n^{+*}\cdot\hat{z}\times\ve_m  \dd s=   \\
+                                                              &= \iint_S \hat{z} \cdot \left( \ve_m\times \vh_n^{+*}  + \ve_n^{+*}\times \vh_m \right)\dd s
+      \end{align*}
+      Another way to say this is that \(\Gamma_z\) is self-adjoint. This is nice because it allows us to do the following
+      \begin{align*}
+       0 &= \inn{\phi_n^+, (\mc{L}_{\om} - \beta_{m\om}\Gamma_z)\phi_m} \\
+          &= \inn{\phi_n^+, \mc{L}_{\om}\phi_m} - \beta_{m\om}\inn{\phi_n^+,\Gamma_z\phi_m}\\
+          &= \inn{\mc{L}_{\om}^+\phi_n^+,\phi_m} -  \beta_{m\om}\inn{\phi_n^+,\Gamma_z\phi_m}\\
+          &= \inn{\beta_{n\om}^*\Gamma_z\phi_n^+,\phi_m} - \beta_{m\om}\inn{\phi_n^+,\Gamma_z\phi_m}\\
+          &= (\beta_{n\om}-\beta_{m\om})\inn{\phi_n^+,\Gamma_z\phi_m}
+      \end{align*}
+      Then we have
+      \begin{align*}
+       0 & = i(\beta_{n\om}-\beta_{m\om})\inn{\phi_n^+,\Gamma_z\phi_m} \\
+          & = \iint_S i(\beta_{n\om}-\beta_{m\om})\hat{z}\cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s \\
+          & = \iint_S \delz \cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s \\
+      \end{align*}
+      Thus we have
+      \begin{equation}
+          \iint_S \delz \cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s = 0
+      \end{equation}
+      From another point of view, if \(\beta_{n\om} \neq \beta_{m\om}$, we have
+      \begin{equation}
+      \inn{\phi_n^+, \Gamma_z\phi_m} = \iint_S \hat{z} \cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s = 0
+      \end{equation}
+      It is desirable to have the stronger condition \(n\neq m\) imply the above identity. This is the same as requiring that the \(\beta$'s have no multiplicity.
+
+      Thus so far we have
+      $$
+       \inn{\phi_n^+, \Gamma_z \phi_m} = N_{m,n} \delta_{m,n}
+      $$
+      where \(N_{m,n}\) is a constant and \(\delta\) is the Kronecker delta.
+
+      2. Testing for Self-Adjointness
+
+      a. Testing \(T\)
+
+      First, we have that
+      $$
+          \ve_m(t-\tau) = \ve_m e^{i\om\tau}, \quad \ve_n^{+*}(t-\tau) = \ve_n^{+*} e^{-i\om\tau}.
+      $$
+
+      Then we start with the calculation
+
+      \begin{align*}
+      \inn{(T-T^+)\phi_n^+, \phi_m} &= \inn{T\phi_n^+, \phi_m} - \inn{T^+\phi_n^+, \phi_m}\\
+                                                         &= \inn{T\phi_n^+, \phi_m} - \inn{\phi_n^+, T\phi_m}\\
+                                                         &= \iint_S \e_0\cdot \e*\ve_n^{+*}\cdot\ve_m - \mu_0 \vh_n^{+*}\cdot \vh_m \dd s - \iint_S  \e_0 \ve_n^{+*}\cdot\e*\ve_m  - \mu_0\vh_n^{+*}\cdot  \om\mu_0\vh_m\dd s \\
+                                                         &= \e_0\iint_S (\ve_m\cdot \e*\ve_n^{+*}  - \ve_n^{+*}\cdot\e*\ve_m)\dd s \\
+      \end{align*}
+
+      Next, we use the definition for the convolution and fint that
+      \begin{align*}
+       \ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*}&=\ve_n^{+*}\cdot\int_0^{\infty}\e(\tau)\ve_m e^{i\om\tau} \dd  \tau   -  \ve_m\cdot\int_0^{\infty}\e(\tau)\ve_n^{+*} e^{-i\om\tau} \dd  \tau\\
+                                                    &= \ve_n^{+*}\cdot \ve_m\int_0^{\infty} \e(\tau) (e^{i\om\tau} - e^{-i\om\tau}) \dd \tau\\
+                                                    &=2i\ve_n^{+*}\cdot \ve_m \int_0^{\infty} \e(\tau) \sin(\om\tau)\dd \tau
+      \end{align*}
+
+      Therefore
+
+      $$
+           \inn{(T-T^+)\phi_n^+, \phi_m} = 2i\e_0 \int_0^{\infty} \e(\tau) \sin(\om\tau)\dd \tau\iint_S \ve_n^{+*}\cdot \ve_m\dd s
+      $$
+      and this is 0 if and only if one of the integrals vanishes.
+
+
+      b. Testing \(\Gamma_{pt}\)
+
+      Let's define the following
+      $$
+          (f, g) = f_1^* \cdot g_1 + f_2^*\cdot g_2
+      $$
+      so that
+      $$
+          \inn{f,g} = \iint_S (f,g) \dd s
+      $$
+      Also
+      $$
+         \Psi_{n,m,\om} = \ve_n^{+*}\times \vh_m + \ve_m\times\vh_n^{+*}
+      $$
+      Ideally, we'd like to perform the same procedure on \(\Gamma_{pt}\) and obtain a similar result. However, it doesn't work out that easily. First we have
+      \begin{align*}
+        \Gamma_{pt}\phi_m &= \begin{bmatrix}0 & \delpt \times \\ \delpt\times & 0\end{bmatrix} \begin{bmatrix} \ve_m \\ i\vh_m \end{bmatrix} = \begin{bmatrix}i \delpt \times \vh_m \\ \delpt \times \ve_m\end{bmatrix} = i\begin{bmatrix}\delpt \times \vh_m \\ i\delpt \times (-\ve_m)\end{bmatrix} = i\phi_{om}\\
+       \Gamma_{pt}\phi_n^+ &= \begin{bmatrix}0 & \delpt \times \\ \delpt\times & 0\end{bmatrix} \begin{bmatrix} \ve_n^+ \\ i\vh_n^+ \end{bmatrix} = \begin{bmatrix}i \delpt \times \vh_n^+ \\ \delpt \times \ve_n^+\end{bmatrix} = i\begin{bmatrix}\delpt \times \vh_n^+ \\ i\delpt \times (-\ve_n^+) \end{bmatrix} = i\phi_{on}^+
+      \end{align*}
+
+      We'll first prove the following identity
+      \begin{equation}
+      i\delpt \cdot \Psi_{n,m,\om} = (\phi_{on}^+,\phi_m) - (\phi_n^+,\phi_{om})
+      \end{equation}
+      We expand each expression
+      \begin{align*}
+       (\phi_{on}^+,\phi_m) &= (i\delpt \times \vh_n^+)^* \cdot \ve_m + (\delpt \times \ve_n^+)^*\cdot (i\vh_m) \\
+                                           &= - i \delpt\times \vh_n^{+*}\cdot \ve_m  + i\delpt\times\ve_n^{+*} \cdot \vh_m \\
+                                           &= -i \ve_m\cdot \delpt\times \vh_n^{+*}+i\vh_m\cdot \delpt \times \ve_n^{+*}
+      \end{align*}
+      Similarly
+      \begin{align*}
+      (\phi_n^+, \phi_{om}) &= \ve_n^{+*} \cdot(i\delpt \times \vh_m) + (i\vh_n^+)^* \cdot (\delpt \times \ve_m)\\
+                                           &= i\ve_n^{+*} \cdot \delpt \times \vh_m - i \vh_n^{+*} \cdot \delpt \times \ve_m
+      \end{align*}
+      Finally we have
+      \begin{align*}
+      i\delpt \cdot \Psi_{n,m,\om}  & = i\delpt \cdot \ve_m\times \vh_n^{+*} +  i\delpt \cdot \ve_n^{+*} \times \vh_m \\
+                                                     & = i \vh_n^{+*} \cdot \delpt \times \ve_m - i \ve_m \cdot \delpt \times \vh_n^{+*} + i \vh_m \cdot \delpt \times \ve_n^{+*} - i \ve_n^{+*} \times \vh_m
+      \end{align*}
+      By inspection we see that the identity holds. This leads to the following identity
+      \begin{equation}
+      \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n^+, \phi_m} = i \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s
+      \end{equation}
+      via
+      $$
+          \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n^+, \phi_m} = \inn{\Gamma_{pt}\phi_n^+, \phi_m}-\inn{\phi_n^+, \Gamma_{pt}\phi_m}
+      $$
+
+
+      In my paper notes I try to simplify this. The \(t\)-dependence cancels out from both sides of the identity due to the conjugation. Since we integrate only over \(x\) and \(y\), the \(z\)-dependence also cancels out. Therefore, the functions depend only on \(x\) and \(y\). Depending on the form of the waves we might also be able to cancel out any complex values (like a phase constant with respect to \(x,y\). We are left with a real expression on the left and an imaginary expression on the right. This gives that \(\Gamma_{pt}\) is self-adjoint and
+      \begin{equation}
+       \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s = 0
+      \end{equation}
+
+      We can proceed in another way too. Using Maxwell's equations we have
+
+      \begin{align*}
+      \nabla\cdot \Psi_{n,m,\om} &= \nabla\cdot (\ve_n^{+*}\times \vh_m + \ve_m\times\vh_n^{+*})\\
+           &= \vh_m \cdot (\nabla \times \ve_n^{+})^* - \ve_n^{+*}\cdot \nabla \times \vh_m + \vh_n^{+*}\cdot\nabla\times \ve_m - \ve_m \cdot (\nabla \times \vh_n)^{+*}\\
+           &= \vh_m\cdot(i\om \mu_0 \vh_n^{+})^* - \ve_n^{+*}\cdot (-i\om\e_0\e*\ve_m) + \vh_n^{+*}\cdot(i\om\mu_0\vh_m) - \ve_m \cdot (-i\om\e_0\e*\ve_n^{+})^*\\
+          &= - i\om \mu_0 \vh_m\cdot \vh_n^{+*} + i\om\e_0\ve_n^{+*}\cdot \e*\ve_m + i\om\mu_0\vh_n^{+*}\cdot\vh_m - i\om\e_0\ve_m \cdot \e*\ve_n^{+*}\\
+          &=  i\om\e_0(\ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*})\\
+      \end{align*}
+
+
+      Then we use the orthogonality relation along with the results about \(T\) to obtain
+
+      \begin{align*}
+        \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s &=  \iint_S (\nabla-\delz) \cdot \Psi_{n,m,\om}\dd s\\
+            &=  \iint_S \nabla \cdot \Psi_{n,m,\om} \dd s\\
+            & =  i\om\e_0\iint_S (\ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*})\dd s\\
+            &= 2i\om\e_0 \int_0^{\infty} \e(\tau) \sin(\om\tau)\dd \tau\iint_S \ve_n^{+*}\cdot \ve_m\dd s
+      \end{align*}
+      Finally
+      \begin{equation}
+          \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n^+, \phi_m} =  i\om\inn{(T-T^+)\phi_n^+, \phi_m}
+      \end{equation}
+
+      3. Necessary Conditions on the Model
+
+      Suppose that
+      \begin{equation}
+       \vE(x,y,z,t) = \vE = \sum_{m}\int_{\om} A_{m,\om}(z) \ve_{m,\om}(x,y)\exp(i(\beta_{n\om}z-\om t) \dd \om = \sum_{m}\int_{\om} A_{m,\om}(z) \ve_{m,\om} \dd \om
+      \end{equation}
+      \begin{equation}
+       \vH(x,y,z,t) = \vH = \sum_{m}\int_{\om} A_{m,\om}(z) \vh_{m,\om}(x,y)\exp(i(\beta_{n\om}z-\om t) \dd \om = \sum_{m}\int_{\om} A_{m,\om}(z) \vh_{m,\om} \dd \om
+      \end{equation}
+      We shall perform the following (hideous) calculation
+      \begin{align*}
+      I_{m,\om}(z) & = \int\iint_S\nabla \cdot (\vE \times \vh_m^* + \vH \times \ve_m^*)\dd s\dd t\\
+            & = - \int_{x,y,t} \nabla \cdot \sum_{n}\int_{\Om} A_{n,\Om}(z)(\ve_{m,\om}^* \times \vh_{n,\Om}+\ve_{n,\Om} \times \vh_{m,\om}^*)\dd \Om \dd x \dd y \dd t\\
+            & = - \int_{x,y} \nabla \cdot \sum_{n}\int_{\Om} A_{n,\Om}(z)(\ve_{m,\om}^* \times \vh_{n,\Om}+\ve_{n,\Om} \times \vh_{m,\om}^*)e^{i z (\beta_{n,\Om}-\beta_{m,\om})} \int e^{it(\om - \Om)} \dd t \dd \Om \dd x \dd y\\
+            & = - \int_{x,y} \nabla \cdot \sum_{n}\int_{\Om} A_{n,\Om}(z)(\ve_{m,\om}^* \times \vh_{n,\Om}+\ve_{n,\Om} \times \vh_{m,\om}^*)e^{i z (\beta_{n,\Om}-\beta_{m,\om})} \delta_{\om,\Om} \dd \Om \dd x \dd y \\
+           & = - \iint_S \nabla \cdot \sum_{n}A_{n,\om}(z)(\ve_{m,\om}^* \times \vh_{n,\om}+\ve_{n,\om} \times \vh_{m,\om}^*)e^{i z (\beta_{n,\om}-\beta_{m,\om})}  \dd s\\
+           & = - \iint_S \nabla \cdot \sum_{n}A_{n,\om}(z)\Psi_{m,n,\om}(x,y)  \dd s
+      \end{align*}
+      Note that I've suppressed the \(x,y\) from expressions like \(\ve_{m,\om}(x,y)\) to avoid clutter. We're overloading notation somewhat. The last line follows by recalling that the \(t\)-dependence cancels out when expanding \(\Psi_{m,n,\om}\). The subscripts appear in the integral to make note which variables it  is associated with. Next we expand the integral using the expansion of \(\nabla\)
+      \begin{align*}
+      I_{m,\om}(z) &= -\iint_S\delz \cdot \sum_n A_{n,\om}(z) \Psi_{m,n,\om}\dd s - \iint_S \delpt \cdot  \sum_n A_{n,\om}(z) \Psi_{m,n,\om} \dd s \\
+            &= -\sum_n \del_z  A_{n,\om}(z) \iint_S\hat{z} \cdot \Psi_{m,n,\om}\dd s - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s\\
+            &= -\sum_n \del_z  A_{n,\om}(z) \delta_{m,n}N_{m,m}(w)e^{iz(\beta_{n,\om}-\beta{m,\om})} - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s\\
+            &= - \del_z A_{m,\om}(z)N_m(\om)  - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s
+      \end{align*}
+      Thus we have obtained the following identity
+      \begin{equation}
+       -\int\iint_S\nabla \cdot (\vE \times \vh_m^* + \vH \times \ve_m^*)\dd s\dd t = - \del_z A_{m,\om}(z)N_m(\om)  - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s
+      \end{equation}
+      In the paper the authors make a statement equivalent to saying that the sum is 0. Another way to state this is
+      \begin{equation}
+      \sum_n A_{n,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n, \phi_m} = 0
+      \end{equation}
+      If we let \(\Phi = \begin{bmatrix}\vE & i \vH\end{bmatrix}^T\)
+      We have
+      \begin{align*}
+       0=\sum_n A_{n,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n, \phi_m} &= \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\sum_n A_{n,\om}(z)\phi_n,\phi_m}\\
+         &= \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\Phi,\phi_m}
+      \end{align*}
+      for every \(m\). Let's take the following expression assuming the \(A\)'s are real
+      \begin{align*}
+      \sum_m \sum_n A_{m,\om}(z)A_{n,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n, \phi_m} =  \sum_m A_{m,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+) \sum_n A_{n,\om}(z)\phi_n,\phi_m}
+      \end{align*}
+      On one hand this equal 0, because of the above. On the other hand this equals
+      $$
+         \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \sum_n A_{n,\om}(z)\phi_n, \sum_m A_{m,\om}(z)\phi_m} = \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \Phi,\Phi}
+      $$
+      So, the authors' claim should be equivalent to saying
+      \begin{equation}
+          \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \Phi,\Phi} = 0
+      \end{equation}
+      Using some algebra we obtain
+      \begin{align*}
+         \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \Phi,\Phi} & = \inn{\Gamma_{pt} \Phi, \Phi} - \inn{\Gamma_{pt}^+ \Phi, \Phi}\\
+                                                & = \inn{\Gamma_{pt} \Phi, \Phi} - \inn{\Phi, \Gamma_{pt}\Phi}\\
+                                                & = \inn{\Gamma_{pt} \Phi, \Phi} - \inn{\Gamma_{pt}\Phi, \Phi}^*\\
+                                                & = 2i Im(\inn{\Gamma_{pt}\Phi,\Phi})
+      \end{align*}
+      that is
+      \begin{equation}
+          Im(\inn{\Gamma_{pt}\Phi,\Phi}) = 0
+      \end{equation}
+      We shall calculate this explicitly now. First
+      $$
+       \Gamma_{pt}\Phi = \begin{bmatrix}0 & \delpt \times \\ \delpt\times & 0\end{bmatrix} \begin{bmatrix} \vE \\ i\vH \end{bmatrix} = \begin{bmatrix}i \delpt \times \vH \\ \delpt \times \vE \end{bmatrix} = i\begin{bmatrix}\delpt \times \vH \\ i\delpt \times (-\vE)\end{bmatrix}
+      $$
+      Then
+      \begin{align*}
+      \inn{\Gamma_{pt}\Phi,\Phi} &= -i \iint_S (\delpt \times \vH)^*\cdot \vE  + (\delpt\times(-\vE))^* \cdot \vH \dd s\\
+                              &=- i \iint_S \vE\cdot \delpt \times \vH^* - \vH \cdot \delpt \times \vE^* \dd s\\
+                              &= - i \iint_S-\delpt \cdot \vE\times \vH^* +\vH^* \cdot \delpt \times \vE - \vH \cdot \delpt \times \vE^* \dd s\\
+                              &= - i \iint_S-\delpt \cdot \vE\times \vH^* +2i Im(\vH^* \cdot \delpt \times \vE) \dd s\\
+                              &=  i \iint_S\delpt \cdot \vE\times \vH^* \dd s+2 \iint_S Im(\vH^* \cdot \delpt \times \vE) \dd s\\
+      \end{align*}
+      The second integrand is real and therefore we obtain
+      $$
+           Im(\inn{\Gamma_{pt}\Phi,\Phi}) = Re(\iint_S\delpt \cdot \vE\times \vH^* \dd s) = \iint_S\delpt \cdot Re(\vE\times \vH^*) \dd s
+      $$
+      So, what is this saying? If the authors of the UPPE model were right to disregard that integral, we must have that the surface integral over any slice of constant \(z\) of the transverse divergence of the poynting vector is equal to 0
+    </div>
+    <div class="col-sm-2"></div>
+  </div>
+
 <div class="text">
-
-\(\newcommand{\mc}[1]{\mathrm{\mathcal{#1}}} \newcommand{\inn}[1]{\langle #1 \!\; \rangle} \newcommand{\dd}{\; \mathrm{d}} \newcommand{\delpt}{\nabla_{pt}} \newcommand{\delz}{\nabla_z}\newcommand{\del}{\partial} \newcommand{\ve}{\vec{\mc{E}}} \newcommand{\vh}{\vec{\mc{H}}} \newcommand{\vE}{\vec{E}} \newcommand{\vH}{\vec{H}} \newcommand{\e}{\epsilon} \newcommand{\om}{\omega} \newcommand{\Om}{\Omega}\)
-
-<h2>Linear Operators in the Theory of Electromagnetism</h2>
-
-<p> This is a topic I worked on during an undergraduate research term at Simon Fraser University. WARNING: The rest of the page is really math-heavy and I have not skipped much in terms of the computations. These are my notes on the electromagnetic operators associated with light propagation into optical fiber. The work here is inspired by several papers on such propagation used to simulate black hole behaviour within the laser pulse. References and clarifications of the material will be added in later.
-
-1. Introducing Operators and Notation
-
-Let \(f = [f_1\;\;f_2]^T\) and \(g = [g_1\;\;g_2]^T\) where the the entries are complex vector functions in \(x,y,z,t\). We define an inner-product
-$$
-    \inn{f,g} = \iint_S f_1^*\cdot g_1+f_2^* \cdot g_2 \dd s
-$$
-
-where \(S\) is a plane paralelel to the \(xy\)-plane that has the point \((0,0,z)\). This inner product has some nice properties
-
-\begin{align*}
-\inn{f,g}^* &= \inn{g,f}\\
-\inn{af,bg} &= a^*b \inn{f,g}\\
-\inn{f+f', g} &= \inn{f,g}+\inn{f',g}\\
-\inn{f,g+g'} &= \inn{f,g}+\inn{f,g'}
-\end{align*}
-
-
-Now we split some operators. Let
-$$
-    \nabla = \nabla_p + \nabla_z
-$$
-where
-$$
-    \nabla_{pt} =  \hat{x}\del_x+\hat{y} \del_y\quad\text{and}\quad \nabla_z = \hat{z}\del_z
-$$
-They have the usual properties of the gradient operator. Let an index \(m\) and a frequency \(\om\) be given with the following shorthand definitions
-\begin{align*}
-\ve_{m\om} &= \ve_m = \ve_{m\om}(x,y)\exp(i(\beta_{n\om}z-\om t)\\
-\vh_{m\om} &= \vh_m = \vh_{m\om}(x,y)\exp(i(\beta_{n\om}z-\om t)\\
-\end{align*}
-They satisfy Maxwell's equations
-\begin{align*}
-\nabla\times \ve_m &= -\mu_0 \del_t \vh_m = i\om \mu_0 \vh_m\\
-\nabla \times \vh_m &= \e_0\del_t\e*\ve_m = - i \om \e_0\e*\ve_m
-\end{align*}
-Now we have \(\del_z \ve_m = i\beta_{m\om}\ve_m\) so
-\begin{align*}
-\delz \times \ve_m = \hat{z}\del_z\times \ve_m = \hat{z}\times \del_z \ve_m = -i \beta_{m\om} \hat{z} \times \ve_m
-\end{align*}
-It works the same way for \(\vh_m\). Thus for a fixed \(m\) and \(\om\) we have
-$$
-   \delz \times \equiv i\beta_{m\om} \hat{z} \times
-$$
-Next we write the operators
-\begin{align*}
-\Gamma_p &= \begin{bmatrix}0 & \delpt\times \\ \delpt\times & 0 \end{bmatrix},\quad \Gamma_z = \begin{bmatrix}0 & i\hat{z}\times \\ i\hat{z}\times & 0 \end{bmatrix} \\
-T &= \begin{bmatrix}\e_0\e* & 0 \\ 0 & -\mu_0 \end{bmatrix},\quad \mc{L}_{\om} = wT - \Gamma_p =  \begin{bmatrix}w\e_0\e* &-\delpt\times  \\ -\delpt\times & -w\mu_0 \end{bmatrix}
-\end{align*}
-These operators will act on the following vectors
-$$
-   \phi_{m\om} =\begin{bmatrix}\ve_{m\om} \\ i\vh_{m\om}\end{bmatrix} = \begin{bmatrix}\ve_m \\ i\vh_m\end{bmatrix}
-$$
-With these we obtain Maxwell's equations in an operator form
-$$
-    (\mc{L}_{\om}-\beta_{m\om}\Gamma_z)\phi_{m\om} = 0
-$$
-We use \(\inn{\cdot,\cdot}\) to define an adjointnes relation for a fixed \(\om\)
-$$
-   \inn{\phi^+,\mc{L}_{\om} \phi} = \inn{\mc{L}_{\om}^+\phi^+, \phi}
-$$
-Let \(\phi_n^+\) be a solution to \((\mc{L}_{\om}^+-\beta_{n\om}^*\Gamma_z)\phi_n^+ = 0\). Let \(\phi_m\) be a solution to \((\mc{L}_{\om}-\beta_{m\om}\Gamma_z)\phi_m = 0\).
-
-First, we show that
-\begin{equation}
-\inn{\Gamma_z\phi_n^+,\phi_m} = \inn{\phi_n^+,\Gamma_z\phi_m}
-\end{equation}
-We have
-\begin{align*}
-   \Gamma_z \phi_n^+ &= \begin{bmatrix} 0 & i\hat{z}\times \\ i\hat{z} \times & 0 \end{bmatrix}\begin{bmatrix}\ve_n^+ \\ i\vh_n^+\end{bmatrix} = \begin{bmatrix} \hat{z}\times(-\vh_n^+) \\ i\hat{z} \times \ve_n^+ \end{bmatrix}\\
-   \Gamma_z \phi_m &= \begin{bmatrix} 0 & i\hat{z}\times \\ i\hat{z} \times & 0 \end{bmatrix}\begin{bmatrix}\ve_m \\ i\vh_m\end{bmatrix} = \begin{bmatrix} \hat{z}\times(-\vh_m) \\ i\hat{z} \times \ve_m\end{bmatrix}
-\end{align*}
-Forming the inner products \(\inn{\Gamma_z\phi_n^+,\phi_m}\) and \(\inn{\phi_n^+,\Gamma_z \phi_m}\) gives us what we need.
-\begin{align*}
-\inn{\Gamma_z \phi_n^+, \phi_m} &= \iint_S \hat{z}\times(-\vh_n^+)^*\cdot\ve_m + \hat{z}\times\ve_n^{+*}\cdot\vh_m \dd s = \\
-                                                        &= \iint_S \hat{z} \cdot \left( \ve_m\times \vh_n^{+*}  + \ve_n^{+*}\times \vh_m \right)\dd s     \\
-\inn{\phi_n^+, \Gamma_z \phi_m} &= \iint_S \ve_n^{+*}\cdot\hat{z}\times(-\vh_m) + \vh_n^{+*}\cdot\hat{z}\times\ve_m  \dd s=   \\
-                                                        &= \iint_S \hat{z} \cdot \left( \ve_m\times \vh_n^{+*}  + \ve_n^{+*}\times \vh_m \right)\dd s
-\end{align*}
-Another way to say this is that \(\Gamma_z\) is self-adjoint. This is nice because it allows us to do the following
-\begin{align*}
- 0 &= \inn{\phi_n^+, (\mc{L}_{\om} - \beta_{m\om}\Gamma_z)\phi_m} \\
-    &= \inn{\phi_n^+, \mc{L}_{\om}\phi_m} - \beta_{m\om}\inn{\phi_n^+,\Gamma_z\phi_m}\\
-    &= \inn{\mc{L}_{\om}^+\phi_n^+,\phi_m} -  \beta_{m\om}\inn{\phi_n^+,\Gamma_z\phi_m}\\
-    &= \inn{\beta_{n\om}^*\Gamma_z\phi_n^+,\phi_m} - \beta_{m\om}\inn{\phi_n^+,\Gamma_z\phi_m}\\
-    &= (\beta_{n\om}-\beta_{m\om})\inn{\phi_n^+,\Gamma_z\phi_m}
-\end{align*}
-Then we have
-\begin{align*}
- 0 & = i(\beta_{n\om}-\beta_{m\om})\inn{\phi_n^+,\Gamma_z\phi_m} \\
-    & = \iint_S i(\beta_{n\om}-\beta_{m\om})\hat{z}\cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s \\
-    & = \iint_S \delz \cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s \\
-\end{align*}
-Thus we have
-\begin{equation}
-    \iint_S \delz \cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s = 0
-\end{equation}
-From another point of view, if \(\beta_{n\om} \neq \beta_{m\om}$, we have
-\begin{equation}
-\inn{\phi_n^+, \Gamma_z\phi_m} = \iint_S \hat{z} \cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s = 0
-\end{equation}
-It is desirable to have the stronger condition \(n\neq m\) imply the above identity. This is the same as requiring that the \(\beta$'s have no multiplicity.
-
-Thus so far we have
-$$
- \inn{\phi_n^+, \Gamma_z \phi_m} = N_{m,n} \delta_{m,n}
-$$
-where \(N_{m,n}\) is a constant and \(\delta\) is the Kronecker delta.
-
-2. Testing for Self-Adjointness
-
-a. Testing \(T\)
-
-First, we have that
-$$
-    \ve_m(t-\tau) = \ve_m e^{i\om\tau}, \quad \ve_n^{+*}(t-\tau) = \ve_n^{+*} e^{-i\om\tau}.
-$$
-
-Then we start with the calculation
-
-\begin{align*}
-\inn{(T-T^+)\phi_n^+, \phi_m} &= \inn{T\phi_n^+, \phi_m} - \inn{T^+\phi_n^+, \phi_m}\\
-                                                   &= \inn{T\phi_n^+, \phi_m} - \inn{\phi_n^+, T\phi_m}\\
-                                                   &= \iint_S \e_0\cdot \e*\ve_n^{+*}\cdot\ve_m - \mu_0 \vh_n^{+*}\cdot \vh_m \dd s - \iint_S  \e_0 \ve_n^{+*}\cdot\e*\ve_m  - \mu_0\vh_n^{+*}\cdot  \om\mu_0\vh_m\dd s \\
-                                                   &= \e_0\iint_S (\ve_m\cdot \e*\ve_n^{+*}  - \ve_n^{+*}\cdot\e*\ve_m)\dd s \\
-\end{align*}
-
-Next, we use the definition for the convolution and fint that
-\begin{align*}
- \ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*}&=\ve_n^{+*}\cdot\int_0^{\infty}\e(\tau)\ve_m e^{i\om\tau} \dd  \tau   -  \ve_m\cdot\int_0^{\infty}\e(\tau)\ve_n^{+*} e^{-i\om\tau} \dd  \tau\\
-                                              &= \ve_n^{+*}\cdot \ve_m\int_0^{\infty} \e(\tau) (e^{i\om\tau} - e^{-i\om\tau}) \dd \tau\\
-                                              &=2i\ve_n^{+*}\cdot \ve_m \int_0^{\infty} \e(\tau) \sin(\om\tau)\dd \tau
-\end{align*}
-
-Therefore
-
-$$
-     \inn{(T-T^+)\phi_n^+, \phi_m} = 2i\e_0 \int_0^{\infty} \e(\tau) \sin(\om\tau)\dd \tau\iint_S \ve_n^{+*}\cdot \ve_m\dd s
-$$
-and this is 0 if and only if one of the integrals vanishes.
-
-
-b. Testing \(\Gamma_{pt}\)
-
-Let's define the following
-$$
-    (f, g) = f_1^* \cdot g_1 + f_2^*\cdot g_2
-$$
-so that
-$$
-    \inn{f,g} = \iint_S (f,g) \dd s
-$$
-Also
-$$
-   \Psi_{n,m,\om} = \ve_n^{+*}\times \vh_m + \ve_m\times\vh_n^{+*}
-$$
-Ideally, we'd like to perform the same procedure on \(\Gamma_{pt}\) and obtain a similar result. However, it doesn't work out that easily. First we have
-\begin{align*}
-  \Gamma_{pt}\phi_m &= \begin{bmatrix}0 & \delpt \times \\ \delpt\times & 0\end{bmatrix} \begin{bmatrix} \ve_m \\ i\vh_m \end{bmatrix} = \begin{bmatrix}i \delpt \times \vh_m \\ \delpt \times \ve_m\end{bmatrix} = i\begin{bmatrix}\delpt \times \vh_m \\ i\delpt \times (-\ve_m)\end{bmatrix} = i\phi_{om}\\
- \Gamma_{pt}\phi_n^+ &= \begin{bmatrix}0 & \delpt \times \\ \delpt\times & 0\end{bmatrix} \begin{bmatrix} \ve_n^+ \\ i\vh_n^+ \end{bmatrix} = \begin{bmatrix}i \delpt \times \vh_n^+ \\ \delpt \times \ve_n^+\end{bmatrix} = i\begin{bmatrix}\delpt \times \vh_n^+ \\ i\delpt \times (-\ve_n^+) \end{bmatrix} = i\phi_{on}^+
-\end{align*}
-
-We'll first prove the following identity
-\begin{equation}
-i\delpt \cdot \Psi_{n,m,\om} = (\phi_{on}^+,\phi_m) - (\phi_n^+,\phi_{om})
-\end{equation}
-We expand each expression
-\begin{align*}
- (\phi_{on}^+,\phi_m) &= (i\delpt \times \vh_n^+)^* \cdot \ve_m + (\delpt \times \ve_n^+)^*\cdot (i\vh_m) \\
-                                     &= - i \delpt\times \vh_n^{+*}\cdot \ve_m  + i\delpt\times\ve_n^{+*} \cdot \vh_m \\
-                                     &= -i \ve_m\cdot \delpt\times \vh_n^{+*}+i\vh_m\cdot \delpt \times \ve_n^{+*}
-\end{align*}
-Similarly
-\begin{align*}
-(\phi_n^+, \phi_{om}) &= \ve_n^{+*} \cdot(i\delpt \times \vh_m) + (i\vh_n^+)^* \cdot (\delpt \times \ve_m)\\
-                                     &= i\ve_n^{+*} \cdot \delpt \times \vh_m - i \vh_n^{+*} \cdot \delpt \times \ve_m
-\end{align*}
-Finally we have
-\begin{align*}
-i\delpt \cdot \Psi_{n,m,\om}  & = i\delpt \cdot \ve_m\times \vh_n^{+*} +  i\delpt \cdot \ve_n^{+*} \times \vh_m \\
-                                               & = i \vh_n^{+*} \cdot \delpt \times \ve_m - i \ve_m \cdot \delpt \times \vh_n^{+*} + i \vh_m \cdot \delpt \times \ve_n^{+*} - i \ve_n^{+*} \times \vh_m
-\end{align*}
-By inspection we see that the identity holds. This leads to the following identity
-\begin{equation}
-\inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n^+, \phi_m} = i \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s
-\end{equation}
-via
-$$
-    \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n^+, \phi_m} = \inn{\Gamma_{pt}\phi_n^+, \phi_m}-\inn{\phi_n^+, \Gamma_{pt}\phi_m}
-$$
-
-
-In my paper notes I try to simplify this. The \(t\)-dependence cancels out from both sides of the identity due to the conjugation. Since we integrate only over \(x\) and \(y\), the \(z\)-dependence also cancels out. Therefore, the functions depend only on \(x\) and \(y\). Depending on the form of the waves we might also be able to cancel out any complex values (like a phase constant with respect to \(x,y\). We are left with a real expression on the left and an imaginary expression on the right. This gives that \(\Gamma_{pt}\) is self-adjoint and
-\begin{equation}
- \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s = 0
-\end{equation}
-
-We can proceed in another way too. Using Maxwell's equations we have
-
-\begin{align*}
-\nabla\cdot \Psi_{n,m,\om} &= \nabla\cdot (\ve_n^{+*}\times \vh_m + \ve_m\times\vh_n^{+*})\\
-     &= \vh_m \cdot (\nabla \times \ve_n^{+})^* - \ve_n^{+*}\cdot \nabla \times \vh_m + \vh_n^{+*}\cdot\nabla\times \ve_m - \ve_m \cdot (\nabla \times \vh_n)^{+*}\\
-     &= \vh_m\cdot(i\om \mu_0 \vh_n^{+})^* - \ve_n^{+*}\cdot (-i\om\e_0\e*\ve_m) + \vh_n^{+*}\cdot(i\om\mu_0\vh_m) - \ve_m \cdot (-i\om\e_0\e*\ve_n^{+})^*\\
-    &= - i\om \mu_0 \vh_m\cdot \vh_n^{+*} + i\om\e_0\ve_n^{+*}\cdot \e*\ve_m + i\om\mu_0\vh_n^{+*}\cdot\vh_m - i\om\e_0\ve_m \cdot \e*\ve_n^{+*}\\
-    &=  i\om\e_0(\ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*})\\
-\end{align*}
-
-
-Then we use the orthogonality relation along with the results about \(T\) to obtain
-
-\begin{align*}
-  \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s &=  \iint_S (\nabla-\delz) \cdot \Psi_{n,m,\om}\dd s\\
-      &=  \iint_S \nabla \cdot \Psi_{n,m,\om} \dd s\\
-      & =  i\om\e_0\iint_S (\ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*})\dd s\\
-      &= 2i\om\e_0 \int_0^{\infty} \e(\tau) \sin(\om\tau)\dd \tau\iint_S \ve_n^{+*}\cdot \ve_m\dd s
-\end{align*}
-Finally
-\begin{equation}
-    \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n^+, \phi_m} =  i\om\inn{(T-T^+)\phi_n^+, \phi_m}
-\end{equation}
-
-3. Necessary Conditions on the Model
-
-Suppose that
-\begin{equation}
- \vE(x,y,z,t) = \vE = \sum_{m}\int_{\om} A_{m,\om}(z) \ve_{m,\om}(x,y)\exp(i(\beta_{n\om}z-\om t) \dd \om = \sum_{m}\int_{\om} A_{m,\om}(z) \ve_{m,\om} \dd \om
-\end{equation}
-\begin{equation}
- \vH(x,y,z,t) = \vH = \sum_{m}\int_{\om} A_{m,\om}(z) \vh_{m,\om}(x,y)\exp(i(\beta_{n\om}z-\om t) \dd \om = \sum_{m}\int_{\om} A_{m,\om}(z) \vh_{m,\om} \dd \om
-\end{equation}
-We shall perform the following (hideous) calculation
-\begin{align*}
-I_{m,\om}(z) & = \int\iint_S\nabla \cdot (\vE \times \vh_m^* + \vH \times \ve_m^*)\dd s\dd t\\
-      & = - \int_{x,y,t} \nabla \cdot \sum_{n}\int_{\Om} A_{n,\Om}(z)(\ve_{m,\om}^* \times \vh_{n,\Om}+\ve_{n,\Om} \times \vh_{m,\om}^*)\dd \Om \dd x \dd y \dd t\\
-      & = - \int_{x,y} \nabla \cdot \sum_{n}\int_{\Om} A_{n,\Om}(z)(\ve_{m,\om}^* \times \vh_{n,\Om}+\ve_{n,\Om} \times \vh_{m,\om}^*)e^{i z (\beta_{n,\Om}-\beta_{m,\om})} \int e^{it(\om - \Om)} \dd t \dd \Om \dd x \dd y\\
-      & = - \int_{x,y} \nabla \cdot \sum_{n}\int_{\Om} A_{n,\Om}(z)(\ve_{m,\om}^* \times \vh_{n,\Om}+\ve_{n,\Om} \times \vh_{m,\om}^*)e^{i z (\beta_{n,\Om}-\beta_{m,\om})} \delta_{\om,\Om} \dd \Om \dd x \dd y \\
-     & = - \iint_S \nabla \cdot \sum_{n}A_{n,\om}(z)(\ve_{m,\om}^* \times \vh_{n,\om}+\ve_{n,\om} \times \vh_{m,\om}^*)e^{i z (\beta_{n,\om}-\beta_{m,\om})}  \dd s\\
-     & = - \iint_S \nabla \cdot \sum_{n}A_{n,\om}(z)\Psi_{m,n,\om}(x,y)  \dd s
-\end{align*}
-Note that I've suppressed the \(x,y\) from expressions like \(\ve_{m,\om}(x,y)\) to avoid clutter. We're overloading notation somewhat. The last line follows by recalling that the \(t\)-dependence cancels out when expanding \(\Psi_{m,n,\om}\). The subscripts appear in the integral to make note which variables it  is associated with. Next we expand the integral using the expansion of \(\nabla\)
-\begin{align*}
-I_{m,\om}(z) &= -\iint_S\delz \cdot \sum_n A_{n,\om}(z) \Psi_{m,n,\om}\dd s - \iint_S \delpt \cdot  \sum_n A_{n,\om}(z) \Psi_{m,n,\om} \dd s \\
-      &= -\sum_n \del_z  A_{n,\om}(z) \iint_S\hat{z} \cdot \Psi_{m,n,\om}\dd s - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s\\
-      &= -\sum_n \del_z  A_{n,\om}(z) \delta_{m,n}N_{m,m}(w)e^{iz(\beta_{n,\om}-\beta{m,\om})} - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s\\
-      &= - \del_z A_{m,\om}(z)N_m(\om)  - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s
-\end{align*}
-Thus we have obtained the following identity
-\begin{equation}
- -\int\iint_S\nabla \cdot (\vE \times \vh_m^* + \vH \times \ve_m^*)\dd s\dd t = - \del_z A_{m,\om}(z)N_m(\om)  - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s
-\end{equation}
-In the paper the authors make a statement equivalent to saying that the sum is 0. Another way to state this is
-\begin{equation}
-\sum_n A_{n,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n, \phi_m} = 0
-\end{equation}
-If we let \(\Phi = \begin{bmatrix}\vE & i \vH\end{bmatrix}^T\)
-We have
-\begin{align*}
- 0=\sum_n A_{n,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n, \phi_m} &= \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\sum_n A_{n,\om}(z)\phi_n,\phi_m}\\
-   &= \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\Phi,\phi_m}
-\end{align*}
-for every \(m\). Let's take the following expression assuming the \(A\)'s are real
-\begin{align*}
-\sum_m \sum_n A_{m,\om}(z)A_{n,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n, \phi_m} =  \sum_m A_{m,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+) \sum_n A_{n,\om}(z)\phi_n,\phi_m}
-\end{align*}
-On one hand this equal 0, because of the above. On the other hand this equals
-$$
-   \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \sum_n A_{n,\om}(z)\phi_n, \sum_m A_{m,\om}(z)\phi_m} = \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \Phi,\Phi}
-$$
-So, the authors' claim should be equivalent to saying
-\begin{equation}
-    \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \Phi,\Phi} = 0
-\end{equation}
-Using some algebra we obtain
-\begin{align*}
-   \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \Phi,\Phi} & = \inn{\Gamma_{pt} \Phi, \Phi} - \inn{\Gamma_{pt}^+ \Phi, \Phi}\\
-                                          & = \inn{\Gamma_{pt} \Phi, \Phi} - \inn{\Phi, \Gamma_{pt}\Phi}\\
-                                          & = \inn{\Gamma_{pt} \Phi, \Phi} - \inn{\Gamma_{pt}\Phi, \Phi}^*\\
-                                          & = 2i Im(\inn{\Gamma_{pt}\Phi,\Phi})
-\end{align*}
-that is
-\begin{equation}
-    Im(\inn{\Gamma_{pt}\Phi,\Phi}) = 0
-\end{equation}
-We shall calculate this explicitly now. First
-$$
- \Gamma_{pt}\Phi = \begin{bmatrix}0 & \delpt \times \\ \delpt\times & 0\end{bmatrix} \begin{bmatrix} \vE \\ i\vH \end{bmatrix} = \begin{bmatrix}i \delpt \times \vH \\ \delpt \times \vE \end{bmatrix} = i\begin{bmatrix}\delpt \times \vH \\ i\delpt \times (-\vE)\end{bmatrix}
-$$
-Then
-\begin{align*}
-\inn{\Gamma_{pt}\Phi,\Phi} &= -i \iint_S (\delpt \times \vH)^*\cdot \vE  + (\delpt\times(-\vE))^* \cdot \vH \dd s\\
-                        &=- i \iint_S \vE\cdot \delpt \times \vH^* - \vH \cdot \delpt \times \vE^* \dd s\\
-                        &= - i \iint_S-\delpt \cdot \vE\times \vH^* +\vH^* \cdot \delpt \times \vE - \vH \cdot \delpt \times \vE^* \dd s\\
-                        &= - i \iint_S-\delpt \cdot \vE\times \vH^* +2i Im(\vH^* \cdot \delpt \times \vE) \dd s\\
-                        &=  i \iint_S\delpt \cdot \vE\times \vH^* \dd s+2 \iint_S Im(\vH^* \cdot \delpt \times \vE) \dd s\\
-\end{align*}
-The second integrand is real and therefore we obtain
-$$
-     Im(\inn{\Gamma_{pt}\Phi,\Phi}) = Re(\iint_S\delpt \cdot \vE\times \vH^* \dd s) = \iint_S\delpt \cdot Re(\vE\times \vH^*) \dd s
-$$
-So, what is this saying? If the authors of the UPPE model were right to disregard that integral, we must have that the surface integral over any slice of constant \(z\) of the transverse divergence of the poynting vector is equal to 0
-</p>
 </div>
 
 </body>
