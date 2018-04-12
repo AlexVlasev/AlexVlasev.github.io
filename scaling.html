@@ -2,11 +2,10 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <link href="">
     <link rel="stylesheet" href="stylesheet.css">
     <title>Alexander Vlasev</title>
-    <script type="text/javascript" src="path-to-mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$$','$$'], ['\[','\]']]}});</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 </head>
 <body>
 
@@ -25,7 +24,178 @@
 
 <div class="text">
   <h2>Scaling of Physical Processes in People</h2>
-  <p> This is an independent subject of study. I've spent time on it here and ther over hte years.</p>
+  <p> This is an independent subject of study. I've spent time on it here and ther over the years.</p>
+
+  <h2>1. Introduction</h2>
+
+<p>It's often difficult to compare people of different sizes in sports. Taller people tend to be much heavier than shorter ones. They also tend to be stronger in the absolute sense but not as strong in the relative sense. Most sports disciplines have some distinctions based on size - most often mass. In my research I used simple models of the human body to study the effects of human size on certain characteristics like mass, strength and speed, and certain processes like jumping, lifting weights and dancing. There are two main types of scaling - isometric and allometric. Imagine two people - one who is shorter and smaller than the other. If human beings scaled isometrically, you would expect that on average the taller person would be a geometric copy of the smaller one, just bigger. However that's not how human and animals scale in general. This deviation from geometric similarity is called allometry. That is, the taller person is stretch and expanded in certain ways that reduce the geometric similarity.
+
+The effect is really stark if we compare an animal like a mouse with a tiger or a tiger with an elephant. Their features are vastly different. The situation is also quite severe - a mouse scaled up to the size of a tiger (isometrically) would collapse and probably not be able to breathe. Certainly its legs would become useless. However if we assume that people scale isometrically we obtain a useful model because the variation among humans is not too large. Of course there are exceptions like comparing the shortest with the tallest people. However if the variation is a foot or two, the model becomes useful and has some predictive power. In a later version we'll explore allometric scaling of people but for now we'll stick with isometry.
+
+1.1. Introductory Example - Area and Volume
+
+We'll investigate what happens when we expand certain shapes. It's easiest to start with a cube and build up other shapes with small cubes via calculus. Let's imagine two cubes - one with side length \(L\) and the other with side length \(L'\) that is larger than \(L\). Let's call the ratio between the sides \(k\). We have \(k = L'/L\). This is our scaling constant. What happens to attributes of the cube like surface area and volume? The surface area of the cubes are \(A=6L^2\) and \(A'=6(L')^2\). How much larger is the area of the bigger cube? The area's expansion factor is
+
+$$\frac{A'}{A} = \frac{6(L')^2}{6L^2} = \left(\frac{L'}{L}\right)^2 = k^2$$
+
+Interesting. If \(k = 3\) we see that the larger cube has not just 3 but 9 times the surface area. Now what about volume? The ratio of the volumes of the cubes is
+
+$$\frac{V'}{V} = \frac{(L')^3}{L^3} = k^3$$
+
+This factor has an even larger power of \(k\). If \(k = 3\) we have a whopping 27 times the volume of the first cube. This is also a place where we can see our first practical application - explaining why biological cells are so darn small. We can imagine a cell as a sack of machines which take up resources from the environment beyond the cell walls. The amount of machines in the cell will depend on its volume and therefore the usage of resources by the cell also depends on its volume. However the interface of the cell with its environment is made of the molecules of the cell wall. In other words, the cell's access to the environment is linked to its surface area. We can imagine a fully grown cell that doesn't want to get any bigger or smaller. It stays in a steady state of mass and size. Then we can immediately say that this cell needs to have the right size so that the amount of resources that come in are exactly offset by the amount of resources consumed.
+
+One assumption that we have to make is that all cells consume the same type of stuff (small molecules for example) and that the machinery inside each cell has one size for all cells. Therefore the rates of consumption \(C\) and extraction \(E\) are proportional to \(V\) and \(A\). That is
+
+$$ C = a V, \quad E = b A $$
+
+for some \(a\) and \(b\). Since we want the consumption and extraction to be the same amounts we want
+
+$$ a V = b A $$
+
+If we imagine a cubical cell we have
+
+$$ a L^3 = b L^2 $$
+
+and we can solve for \(L\)
+
+$$ L = \frac{b}{a} $$
+
+It just so happens that for cells \(b\) is relatively small compared to \(a\) and this forces cells to have a small size. However, even if we didn't know this we could arrive at a similar conclusion by looking at how the consumption and extraction relate for a single cell
+
+$$r = \frac{E}{C} = \frac{b}{aL}$$
+
+Now let's imagine a larger cell of size \(L' = kL\). Then the ratio for that cell is
+
+$$ r' = \frac{b}{aL'} = \frac{b}{akL} = \frac{1}{k} r$$
+
+This is fascinating. It means that the ratio of extraction to consumption decreases with the size of the cell. Eventually a cell would not be able to grow larger due to the diminishing of the ratio. If cell walls were somehow even 10 times better at transporting resources we wouldn't see gigantic cells.
+
+The rest of the project deals with similar problem but the complexity will naturally rise as we look at more difficult problems. However the flavour is very much the same.
+
+1.2. Introductory Example - Force, Torque and Inertia
+
+Muscles behave a lot like ropes. They can pull but they cannot push. Similarly a muscle's strength behaves a lot like that of a rope. Imagine a rope. Now imagine a rope twice as long. Is it stronger or weaker? No, it's about as strong as the shorter rope. Now imagine you make the rope wider. Now it's stronger. Muscles are like that too - their strength is in their cross-sectional area. A muscle that grows has a somewhat more complicated interaction with it's cross section but we only need to imagine how muscles of the same shape differ for different people. Thus it's perfectly fine to model muscles as contracting ropes. In other words the force produced by a muscle is proportional to its cross-sectional area
+
+$$ F = \lambda A_{cs} $$
+
+Now let's imagine the same muscle for a larger individual. Here we have
+
+$$ F' = \lambda A_{cs}' = \lambda k^2 A_{cs} = k^2 F$$
+
+Thus we find that muscle strength increases by a factor of \(k^2\) among individuals. Wait a minute. Individuals' volumes (and thus masses) scale by a factor of \(k^3\). Therefore the relative strength of a bigger individual will be lower. That is the ratio \(r' = F'/M'\) is
+
+$$\frac{F'}{M'} = \frac{k^2 F}{k^3 M} = \frac{1}{k}r$$
+
+and herein lies the predictive power of the isometric scaling model. Within this model with its explicit and implicit assumptions we have just shown that a larger muscle will be relatively weaker if it has the same geometric shape. In order for it to maintain the same relative strength it'll need to be wider.
+
+However the muscles of the human body don't just pull on weights. They pull on bones which act as lever arms to produce movement. To deal with this we need to take torque into account. In its most basic form it's defined as
+
+$$\tau = FL$$
+
+where \(F\) is the force produced and \(L\) is the length of the lever arm. Since we already know how forces scale up we can see how torque scales up
+
+$$\tau' = F'L' = k^2F kL = k^3 \tau $$
+
+Therefore torque scales up the same way as mass. We'll see later that even though torque scales up as \(k^3\) the effective weight that can be moved by the lever arm system scales up as \(k^2\). This is because the weight itself acts on a larger lever arm (by factor \(k\)) and therefore the effect of the larger lever arm cancels out.
+
+Since we are dealing with torque we cannot pass up the opportunity to talk about rotation which depends on the moment of inertia of the body. A lot of geometric shapes have a formula for moment of inertia that looks something like
+
+$$I = Cmr^{2}$$
+
+where \(m\) is the mass of the body, \(r\) is some characteristic length (like radius when there is radial symmetry) and \(C\) is some constant. When we scale up the moment of inertia we find
+
+$$ I' = Cm'(r')^2 = Ck^3mk^2r = k^5 I$$
+
+so it scales up by the fifth power! This is a very big effect.
+
+1.3. Kinematic quantities
+
+We can use Newton's Second law to derive some kinematic relationships between isometrically-scaled bodies. Since in its most basic form the law states \(F = ma\) we can find the acceleration that can be produced by a force of a larger person. That is
+
+$$a' = \frac{F'}{m'} = \frac{k^2 F}{k^3 m} = \frac{1}{k}a $$
+
+and a taller, isometrically-scaled person will have a tougher time accelerating. Similarly if taken over some time interval \(t\) the velocity produced by the taller person will be smaller still because
+
+$$v' = a' t = \frac{1}{k} at = \frac{1}{k}v$$
+
+By the same kind of calculation we also see that the distance traveled also scales in the same way - \(d' = d/k\). What about kinetic energy though? Here
+
+$$ E' = \frac{1}{2} m'(v')^2 = \frac{1}{2} k^3m\left(\frac{1}{k}v\right)^2 = k E$$
+
+so even though the taller person reached a lower velocity, the taller person has larger kinetic energy. In team sports with collisions the physics requires a measure of momentum so we can calculate the scaling of that as well
+
+$$p' = m'v' = k^3 m \frac{1}{k}v = k^2 p$$
+
+We can do the same kind of calculation for the rotational equivalents. If \(\alpha, \omega, E_r, L\) are the angular acceleration, rotation, energy and momentum then we have
+
+$$\alpha' = \frac{1}{k^2}\alpha, \quad \omega' = \frac{1}{k^2}\omega, \quad E_r' = k E_r, \quad L' = k^3 L$$
+
+All of these quantities have big ramifications in every aspect of our lives. Larger people have a lot more mass and need to eat a lot more in order to survive. They also tend to have a harder time beating others in relative activities like running and gymnastics. However they are at an advantage in contact sports where their larger size leads to a larger absolute ability. Click below for the next part
+
+2. Applications To Simple Muscle Systems
+
+2.1. Simple Toy Model
+
+In this section we'll explore how isometric scaling affects situations close to real life. We'll use a simple model of muscles and levers that lift weights in a specific manner. This will have applications to all sorts of weight-bearing activity. For our first toy model we'll have a simple muscle hanging from an attachment point on a surface (like a ceiling). Then we'll hang  more weight on the muscle until it cannot hold it any longer. Then we'll scale up the muscle and see how much weight it can bear.
+
+The muscle has mass \(m\) and has a maximal weight of mass \(w\) hanging from it. Then we scale up by a factor of \(k\) like before so the muscle has mass \(m' = k^3 m\). We need to find the equivalent weight \(w'\) that the muscle can lift. What limits the maximum mass a muscle can lift? Well, for starters the muscle is hanging off the ceiling and supporting its own weight. At the base of the muscle near the ceiling, the tension within should be greatest because that part is supporting the rest of the muscle below. The tension at this point for the first muscle is
+
+$$ T = m g + w g$$
+
+whereas for the second muscle we have
+
+$$ T ' = m' g + w' g = k^3mg+w'g$$
+
+Since the tension is a force, it is proportional to the area of the cross section of the muscle so
+
+$$T ' = k^2 T$$
+
+and finally we can solve for \(w'\)
+
+$$k^3mg+w'g = k^2(mg+wg)$$
+
+Cancelling out the \(g\)'s and rearranging the terms leads to the formula
+
+$$w '  = k^2 w + (k^2-k^3)m = k^2 w-(k-1)k^2m$$
+
+How can we interpret this? In a first approximation we can say that since the force scales up by a factor of \(k^2\) the weight lifted should also scale up by that factor. However in this toy model the muscle also has to support its own weight which scales up by a factor of \(k^3\) and so we need to lower the total amount lifted. We can calculate a relative strength ratio by taking \(r = w/m\). We find that
+
+$$r' = \frac{w'}{m'} = \frac{k^2 w-(k-1)k^2m}{k^3m} = \frac{1}{k}r-\left(1-\frac{1}{k}\right)$$
+
+The relative strength of the bigger muscle is not only smaller to begin with (taking into account the \(1/k\) factor) but also because of having to carry its own weight as well. We can analyze many more situations that are more realistic but we'll arrive at similar conclusions. The effective weight lifted in an exercise is
+
+$$w' = k^2w + (k^2-k^3)\beta = k^2 w-(k-1)k^2\beta$$
+
+where \(\beta\) is some (perhaps complicated) factor dependent on the body part masses and geometry. I've analyzed exercises like curls, pull-ups, bench press, squat, deadlift, handstand pushups, one leg squat. It remains a conjecture to show that isometric scaling leads to the above equation.
+
+Here is an example. Let's say your friend is 1.70 m tall and you are 1.88 m tall (like me). Then let's say your friend has relative strength on some exercise equal to \(r = 2\). For this situation \(k = 1.88/1.70 =1.105 \) and so
+
+$$r' = \frac{2}{1.105}- (1-\frac{1}{1.105}) = 1.71$$
+
+Immediately it shows that a taller person of the same build and composition will necessarily be weaker. Therefore the taller person will need to be significantly more muscular to produce the same relative strength. How much larger? We find out in the next part.
+
+2.2. Isometric Scaling With Stretching
+
+So far we assumed that the scaling stretches the body by the same amounts in all directions. However, we can slightly extend the validity of isometric scaling by relaxing this condition. Now we can stretch people in different directions by different amounts. At first glance it would appear that the major differences between people would be in height and width. So we go back to our box of size \(L\) and stretch each side by a different amount. We'll independently stretch the box vertically by a factor of \(k\) and sideways by a factor of \(j\). Therefore the new box will have a volume \(V' = j^2k V\). Consequently the mass will scale by the same factor as well. Now what about the force? This is where things can become complicated. It depends on which way the muscles are oriented.
+
+If we look at the legs the muscles are mostly oriented going in the vertical direction so their cross-sectional area will scale up by a factor of \(j^2\). This is true for all such muscles. There are muscles that go in a mostly horizontal direction like parts of the traps, rhomboids, glutes. In that case the vertical scaling will stretch the muscle's cross-section and the force will scale by a factor of \(jk\). However a lot of muscles going in a diagonal direction which makes the determination of the scaling factor somewhat problematic. It can be done but the factor can be messy.
+
+This paradigm of isometric scaling with independent stretching allows us to compare individuals who do not look quite the same. We can compare people across body types. For example we can compare a short muscular person with a tall skinny one. How does the above analysis play out in terms of a simple muscle system like a muscle hanging from the ceiling? This time we allow independent scaling vertically by a factor of \(k\) and horizontally by a factor of \(j\). The math plays out in a similar way
+
+$$ T = mg + wg, \quad T' = m'g+w'g = j^2kmg + w'g,\quad T' = j^2T$$
+
+Combining these equations and solving for \(w'\) yields
+
+$$w' = j^2w+(j^2-j^2k)m = j^2 w - (k-1)j^2m$$
+
+and then the relative strength is
+
+$$r' = \frac{w'}{m'} = \frac{j^2 w - (k-1)j^2m}{j^2km} = \frac{1}{k}w-\left(1-\frac{1}{k}\right)$$
+
+Wow! This is certainly a result we didn't expect! The total weight lifted does indeed depend on the "width" of the individual but the relative strength does not. That is, in the universe of isometric scaling it makes no sense to become thicker in order to be relatively stronger. In other words, in the universe of isometric scaling, taller individuals are forever doomed to being weaker on a relative scale. But how does this differ from reality?
+
+For starters, even the independent stretching doesn't cover all of human physiology. It's certainly a useful approximation but in the real world people's proportions scale differently. For starters, taller people should have more massive legs with upper bodies of similar size to shorter individuals. At least the scaling won't be as extreme. Secondly, people who strength train can get relatively stronger even if their body mass stays the same. This can be achieved in several ways - losing fat and gaining muscle, losing muscle in one place and gaining in another, increased neural efficiency.</p>
+
 </div>
 
 </body>
