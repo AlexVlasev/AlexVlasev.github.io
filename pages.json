@@ -1,0 +1,80 @@
+[
+  {
+    "name": "home",
+    "link": "index.html",
+    "content": "content/index-content.html",
+    "title": "Home",
+    "include-math": false,
+    "include-p5": false
+  },
+  {
+    "name": "a-star-demo",
+    "link": "a-star-demo.html",
+    "content": "content/a-star-demo-content.html",
+    "title": "A* Algorithm Demo",
+    "include-math": false,
+    "include-p5": true
+  },
+  {
+    "name": "perlin-noise-demo",
+    "link": "perlin-noise-demo.html",
+    "content": "content/perlin-noise-content.html",
+    "title": "Perlin Noise Terrain Demo",
+    "include-math": false,
+    "include-p5": true
+  },
+  {
+    "name": "masters",
+    "link": "masters.html",
+    "content": "content/masters-content.html",
+    "title": "Lattice Walk Enumeration",
+    "include-math": true,
+    "include-p5": false
+  },
+  {
+    "name": "operators",
+    "link": "operators.html",
+    "content": "content/operators-content.html",
+    "title": "Electromagnetic Operators",
+    "include-math": true,
+    "include-p5": false
+  },
+  {
+    "name": "scaling",
+    "link": "scaling.html",
+    "content": "content/scaling-content.html",
+    "title": "Scaling of Human Processes",
+    "include-math": true,
+    "include-p5": false
+  },
+  {
+    "name": "home",
+    "link": "index.html",
+    "content": "content/index_content.html",
+    "title": "Home"
+  },
+  {
+    "name": "parkour",
+    "link": "parkour.html",
+    "content": "content/parkour-content.html",
+    "title": "Parkour",
+    "include-math": false,
+    "include-p5": false
+  },
+  {
+    "name": "ballroom",
+    "link": "ballroom.html",
+    "content": "content/ballroom-content.html",
+    "title": "Ballroom Dancing",
+    "include-math": false,
+    "include-p5": false
+  },
+  {
+    "name": "photography",
+    "link": "photography.html",
+    "content": "content/photography-content.html",
+    "title": "photography",
+    "include-math": false,
+    "include-p5": false
+  }
+]
