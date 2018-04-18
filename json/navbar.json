@@ -1,0 +1,40 @@
+{
+  "navbar-items": {
+    "index": {
+      "type": "link",
+      "title": "Home",
+      "href": "index.html"
+    },
+    "software": {
+      "type": "dropdown",
+      "title": "Demos",
+      "options": [
+        {"title": "A* Algorithm Demo", "href": "a-star-demo.html", "category": "software"},
+        {"title": "Perlin Noise Terrain Demo", "href": "perlin-noise-demo.html", "category": "software"}
+      ]
+    },
+    "math": {
+      "type": "dropdown",
+      "title": "Mathematics",
+      "options": [
+        {"title": "Lattice Walk Enumeration", "href": "masters.html", "category": "math"},
+        {"title": "Electromagnetic Operators", "href": "operators.html", "category": "math"},
+        {"title": "Scaling of Human Processes", "href": "scaling.html", "category": "math"}
+      ]
+    },
+    "lifestyle": {
+      "type": "dropdown",
+      "title": "Lifestyle",
+      "options": [
+        {"title": "Parkour", "href": "parkour.html", "category": "lifestyle"},
+        {"title": "Ballroom Dancing", "href": "ballroom.html", "category": "lifestyle"},
+        {"title": "Photography", "href": "photography.html", "category": "lifestyle"}
+      ]
+    },
+    "about": {
+      "type": "link",
+      "title": "About",
+      "href": "about.html"
+    }
+  }
+}

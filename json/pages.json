@@ -1,79 +1,73 @@
 [
   {
-    "name": "home",
-    "link": "index.html",
-    "content": "content/index-content.html",
+    "name": "index",
+    "description": "Home Page",
     "title": "Home",
     "include-math": false,
     "include-p5": false
   },
   {
     "name": "a-star-demo",
-    "link": "a-star-demo.html",
-    "content": "content/a-star-demo-content.html",
+    "description": "Demo for an implementation of the A* algorithm to traverse a terrain with least effort. Refresh the page for a fresh terrain.",
     "title": "A* Algorithm Demo",
     "include-math": false,
     "include-p5": true
   },
   {
     "name": "perlin-noise-demo",
-    "link": "perlin-noise-demo.html",
-    "content": "content/perlin-noise-content.html",
+    "description": "Demo showcasing Perlin noise terrain generation. Use the mouse to change the direction of movement",
     "title": "Perlin Noise Terrain Demo",
     "include-math": false,
     "include-p5": true
   },
   {
     "name": "masters",
-    "link": "masters.html",
-    "content": "content/masters-content.html",
+    "description": "Page describing my Master's thesis research into Lattice Walk Enumeration.",
     "title": "Lattice Walk Enumeration",
     "include-math": true,
     "include-p5": false
   },
   {
     "name": "operators",
-    "link": "operators.html",
-    "content": "content/operators-content.html",
+    "description": "Pade describing my USRA research on the theory of Electromagnetic Operators",
     "title": "Electromagnetic Operators",
     "include-math": true,
     "include-p5": false
   },
   {
     "name": "scaling",
-    "link": "scaling.html",
-    "content": "content/scaling-content.html",
+    "description": "Page outlining my research into the physical and practical differences of having different body sizes",
     "title": "Scaling of Human Processes",
     "include-math": true,
     "include-p5": false
   },
   {
-    "name": "home",
-    "link": "index.html",
-    "content": "content/index_content.html",
-    "title": "Home"
-  },
-  {
     "name": "parkour",
     "link": "parkour.html",
     "content": "content/parkour-content.html",
+    "description": "Page showing off some of my Parkour skills via photos and videos.",
     "title": "Parkour",
     "include-math": false,
     "include-p5": false
   },
   {
     "name": "ballroom",
-    "link": "ballroom.html",
-    "content": "content/ballroom-content.html",
+    "description": "Page showing off some of my dancing abilities via photos and videos.",
     "title": "Ballroom Dancing",
     "include-math": false,
     "include-p5": false
   },
   {
     "name": "photography",
-    "link": "photography.html",
-    "content": "content/photography-content.html",
-    "title": "photography",
+    "description": "Page dedicated to my iPhone photography",
+    "title": "Photography",
+    "include-math": false,
+    "include-p5": false
+  },
+  {
+    "name": "about",
+    "description": "Information about me",
+    "title": "About",
     "include-math": false,
     "include-p5": false
   }
