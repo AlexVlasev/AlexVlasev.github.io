@@ -11,22 +11,26 @@
     {scripts}
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand">{brand}</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <nav class="navbar navbar-static-top navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand">{brand}</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          {navbar}
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            {navbar}
+          </ul>
+        </div>
       </div>
     </nav>
 
     <div class="row">
       <div class="col-sm-2"></div>
-      <div class="col-sm-8">{content}</div>
+      <div class="col-sm-8" id="content">
+        {content}
+      </div>
       <div class="col-sm-2"></div>
     </div>
 

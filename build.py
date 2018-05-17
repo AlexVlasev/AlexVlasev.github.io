@@ -85,13 +85,13 @@ if __name__ == '__main__':
         navbar_items = (navbar_item(navbar_data[name], name == page["name"], title) for name in navbar_data)
         navbar_html = f'\n{5*"  "}'.join(navbar_items)
         with open(f'content/{page["name"]}-content.html', 'r') as infile:
-            content_html = "".join(infile.readlines())
+            content_html = f'{4*"  "}'.join(infile.readlines())
 
         page_items = {
-            "title": "The Lopsided Life" + f' - {title}',
+            "title": "Alex Vlasev" + f' - {title}',
             "author": "Alexander Vlasev",
             "description": page["description"],
-            "brand": "The Lopsided Life",
+            "brand": "Alex Vlasev",
             "scripts": scripts_html,
             "navbar": navbar_html,
             "content": content_html
