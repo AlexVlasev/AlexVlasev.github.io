@@ -1,3 +1,7 @@
+<h1>Perlin Noise Terrain Flyover</h1>
+<p>This is a demo of an infinite proceduraly generated Perlin Noise terrain. You can use the mouse to change direction by moving it left or right across the screen. </p>
 <div id="sketch">
   <script src="scripts/perlin-noise-terrain-demo.js"></script>
 </div>
+<h2>How it works</h2>
+<p>This demo uses the powerful <a href="https://p5js.org/">p5.js</a> library to create the graphics together with WebGL to render them on your browser screen. We first make a grid of a carefully-chosen size and then create the terrain heights based on a general position that updates with every frame. The position determines the seed used for the Perlin Noise generator whose values create the landscape shape. The algorithm only chooses to render pieces of the landscape within a specified distance from the observer. The fog-like appearance helps reduce the "pop-up" appearance of new terrain.</p>

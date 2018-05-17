@@ -1,2 +1,8 @@
-<script src="scripts/a-star-algorithm.js"></script>
-<script src="scripts/a-star-demo.js"></script>
+<h1>A* Search Algorithm</h1>
+<p>This is a demo of the A* Search algorithm that finds a "path of least effort" across a procedurally generated mountanous region. What you are looking at is a top-down view of a topographic map, with lighter colours indicating higher ground. The path minimzes distance and vertical height climbed during the travel.</p>
+<div id="sketch">
+  <script src="scripts/a-star-algorithm.js"></script>
+  <script src="scripts/a-star-demo.js"></script>
+</div>
+<h2>How it works</h2>
+<p>We start with a terrain generated using Perlin Noise. Then this terrain is colour-coded based on height and the A* algorithm is put to action. The green squares are part of the terrain considered in the algorithm, whereas the pink path is the path chosen. Why are not all squares considered? This is because the cost of climbing over the mountains to get to them is higher than the cost of the path found!</p>

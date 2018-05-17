@@ -6,8 +6,7 @@ let length = 30; // size of one square
 let height = 100; // How high do we want the terrain to be
 
 function setup() {
-	var cnv = createCanvas(windowWidth-10, windowHeight*2/3, WEBGL);
-	cnv.position(500, 500);
+	var cnv = createCanvas(windowWidth, windowHeight*2/3, WEBGL);
 	setAttributes('antialias', true);
 	angle = 0;
 }
@@ -68,7 +67,6 @@ function draw() {
 	
 }
 
-
-// function windowResized() {
-//  	resizeCanvas(windowWidth, windowHeight);
-// }
+function windowResized() {
+ 	resizeCanvas(windowWidth, windowHeight*2/3);
+}
