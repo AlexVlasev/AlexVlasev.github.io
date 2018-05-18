@@ -1,3 +1,21 @@
-(UNDER CONSTRUCTION)
-<h2>Multidimensional Lattice Walk Enumeration</h2>
-<p> This is a subject in combinatorics. My research spanned other fields such as Analysis, Group Theory and Functional Equations. (Under construction)</p>
+<h2>Multidimensional Lattice Walk Enumeration (under construction)</h2>
+<p>During my graduate studies at the University of British Columbia, I worked on a fascinating project involving objects called lattice walk and their enumeration (counting). Imagine a grid on a piece of paper. Starting at one intersection of the gridlines, we may ask the following question. In how many ways can we reach another gridline intersection while taking steps along the lines from one intersection to another? Each path thus formed is called a lattice walk. A lattice is a generalization of grid in two or more dimensions. Now imagine we cut part of the page off so that some parts of the grid are inaccessible. This means we'll have fewer walks, but we don't quite know which ones. Now imagine that visiting certain places on the grid give the walks certain properties, so we might want to track those "visits". In my research I studied this specific problem in an arbitrary number of dimensions \(d\).</p>
+<p>After a lot of tinkering, I found a way to capture all such walks' behaviours in a single equation \((1-\Gamma S)Q = q\). For now the symbols won't mean much. You can find the whole thesis at <a href="https://open.library.ubc.ca/cIRcle/collections/ubctheses/24/items/1.0165809">UBC cIRcle</a>. The following short explanation of my work is a rather inadequate introduction to this subject, because it assumes knowledge of all the parts comprising the subject. For a thorough introduction to the topic, please read my thesis.</p>
+
+<h4>Generating functions</h4>
+<p>Consider a sequence \((w_n\) indexed by \(n\). We can define its <b>generating function</b> \(W(x)\) to be defined as \(W(x) = \sum_n w_n x^n\), where the index varies over that of the sequence. For the multivariate case in \(m\) dimensions, we have a sequence \((w_{n_1,\ldots,n_m})\) with generating function
+$$
+  W(x_1,\ldots,x_m) = \sum_{n_1,\ldots,n_m} w_{n_1,\dots,n_m}^{n_1,\ldots,n_m}.
+$$
+We will use such sequences and generating functions to enumerate lattice walks in \(m\) dimensions. We will use the symbol \(Q\) for the generating function.
+</p>
+
+<h4>Extraction operators</h4>
+<p>Suppose we have the generating function \(W(x)\) as before. We'll define an operator that acts on the function to grab a specific coefficient from the function. We define the <b>coefficient extraction operator</b> \([x^n]\) via its action on \(W(x)\). We have \([x^n]W(x) = w_n\). Similarly, we can define a <b>term extraction operator</b> if we want the coefficient together with its monomial. We write it as \([[x^n]] = x^n[x^n]\) and its action is analogous. We have \([[x^n]]W(x) = w_nx^n\).</p>
+<p>We can define these in higher generality. Let \(I\) and \(J\) be two sets of integers from 1 to \(k\). Then we can write the monomial \(x_I^J = x_{I_1}^{J_1}\cdots x_{I_k}^{J_k}\) and use it in the various operatos, for example, \([x_I^J]\) and \([[x_I^J]] = x_I^J[x_I^J]\). We can use this kind of notation to index sequences too.</p>
+
+<h4>Sums of extraction operators</h4>
+<p>To treat this problem with higher generality, we'll need to use sums of extraction operators where they act in a linear way, that is, applying the sum of operators is the same as summing the application of the individual operators. Also, each extraction can append a monomial, like \(abc\), to a specific term to "mark" it for later use. That would be called a <b>marking operator</b>. Suppose that \(\Gamma\) is one such operator that extracts some terms, removes others and keeps the rest. Then we can write it as a sum of individual extraction operators as defined above.</p>
+
+<h4>Two-dimensional lattice walks</h4>
+<p>We'll start with the prototypical problem. We'll try to count walks on the quarter plane with positive coordinates starting at the origin. To be continued...</p>
