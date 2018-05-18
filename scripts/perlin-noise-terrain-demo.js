@@ -4,10 +4,14 @@ let speed = 2;
 let samples = 35;
 let length = 30; // size of one square
 let height = 100; // How high do we want the terrain to be
+let cnv;
 
 function setup() {
-	var cnv = createCanvas(windowWidth, windowHeight*2/3, WEBGL);
-	setAttributes('antialias', true);
+	cnv = createCanvas(windowWidth*2/3, windowHeight*2/3, WEBGL);
+  cnv.style("display", "block");
+  cnv.style("margin-left", "auto");
+  cnv.style("margin-right", "auto");
+  cnv.parent("sketch");
 	angle = 0;
 }
 
@@ -68,5 +72,8 @@ function draw() {
 }
 
 function windowResized() {
- 	resizeCanvas(windowWidth, windowHeight*2/3);
+ 	resizeCanvas(windowWidth*2/3, windowHeight*2/3);
+ 	cnv.style("display", "block");
+  cnv.style("margin-left", "auto");
+  cnv.style("margin-right", "auto");
 }

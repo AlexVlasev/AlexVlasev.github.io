@@ -92,7 +92,11 @@ function drawPath(path) {
 }
 
 function setup() {
-  createCanvas(400, 400);
+  var cnv = createCanvas(400, 400);
+  cnv.style("display", "block");
+  cnv.style("margin-left", "auto");
+  cnv.style("margin-right", "auto");
+  cnv.parent("sketch");
   w = width / cols;
   h = height / rows;
 
