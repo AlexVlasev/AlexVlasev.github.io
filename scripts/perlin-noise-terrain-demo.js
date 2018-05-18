@@ -7,7 +7,7 @@ let height = 100; // How high do we want the terrain to be
 let cnv;
 
 function setup() {
-	cnv = createCanvas(windowWidth*2/3, windowHeight*2/3, WEBGL);
+	cnv = createCanvas(windowWidth, windowHeight*2/3, WEBGL);
   cnv.style("display", "block");
   cnv.style("margin-left", "auto");
   cnv.style("margin-right", "auto");
@@ -72,7 +72,7 @@ function draw() {
 }
 
 function windowResized() {
- 	resizeCanvas(windowWidth*2/3, windowHeight*2/3);
+ 	resizeCanvas(windowWidth, windowHeight*2/3);
  	cnv.style("display", "block");
   cnv.style("margin-left", "auto");
   cnv.style("margin-right", "auto");
