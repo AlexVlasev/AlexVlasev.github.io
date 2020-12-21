@@ -1,11 +1,10 @@
 import React from "react";
 import { hot } from "react-hot-loader/root";
 import "./App.css";
+import Header from "./components/Header";
 
 const App = () => (
-    <div className="App">
-        <h1> Hello, World!!! </h1>
-    </div>
+    <Header />
 );
 
 export default hot(App);
