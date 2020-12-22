@@ -1,8 +1,9 @@
 import React from "react";
-import BasePage from "../components/BasePage";
+import PageWithSidebar from "../components/PageWithSidebar";
+import lifeLinks from "./constants";
 
 const Life  = () => (
-    <BasePage title='Life' />
+    <PageWithSidebar title='Life' sidebarLinks={lifeLinks} />
 );
 
 export default Life;

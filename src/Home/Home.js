@@ -1,8 +1,10 @@
 import React from "react";
-import BasePage from '../components/BasePage';
+import SimplePage from '../components/SimplePage';
+
+const Comp = () => (<div>Page</div>);
 
 const Home = () => (
-    <BasePage title='Home' />
+    <SimplePage title='Home' ContentComponent={Comp} />
 );
 
 export default Home;

@@ -1,8 +1,8 @@
 import React from "react";
-import BasePage from "../components/BasePage";
+import SimplePage from "../components/SimplePage";
 
 const Contact  = () => (
-    <BasePage title='Contact' />
+    <SimplePage title='Contact' ContentComponent={() => <p>test</p>} />
 );
 
 export default Contact;

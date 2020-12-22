@@ -1,8 +1,9 @@
 import React from "react";
-import BasePage from "../components/BasePage";
+import PageWithSidebar from "../components/PageWithSidebar";
+import mathLinks from "./constants";
 
 const Mathematics  = () => (
-    <BasePage title='Mathematics' />
+    <PageWithSidebar title='Mathematics' sidebarLinks={mathLinks} />
 );
 
 export default Mathematics;

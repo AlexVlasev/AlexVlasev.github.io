@@ -1,8 +1,9 @@
 import React from "react";
-import BasePage from "../components/BasePage";
+import PageWithSidebar from "../components/PageWithSidebar";
+import thoughtLinks from "./constants";
 
 const Thoughts  = () => (
-    <BasePage title='Thoughts' />
+    <PageWithSidebar title='Thoughts' sidebarLinks={thoughtLinks} />
 );
 
 export default Thoughts;
