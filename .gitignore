@@ -3,8 +3,10 @@
 node_modules/
 dist/
 build/
+.react-router/
 notes/
 
 # Files
 
 .DS_Store
+.env*.local
