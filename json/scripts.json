@@ -1,7 +1,8 @@
 {
   "jquery.js": {
     "head": "script",
-    "src": "https://pagecdn.io/lib/jquery/3.4.1/jquery.slim.min.js",
+    "src": "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js",
+    "integrity": "sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n",
     "crossorigin": "anonymous"
   },
   "popper.js": {
