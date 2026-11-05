@@ -1,9 +1,9 @@
-.sketch,
-.continuous {
+.inline,
+.wide {
     margin-block: 1.5rem;
 }
 
-.continuous {
+.wide {
     --sketch-width: min(
         calc(100vw - 2 * var(--mobile-gutter)),
         var(--page-width)
@@ -13,13 +13,27 @@
     margin-inline: calc((100% - var(--sketch-width)) / 2);
 }
 
-.sketch canvas,
-.continuous canvas {
+.inline canvas,
+.wide canvas {
     display: block;
     max-width: 100%;
     height: auto !important;
     margin-inline: auto;
     border-radius: var(--radius);
+}
+
+.backgroundLayer {
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: max(14rem, min(62vh, calc(100vh - 20rem)));
+    pointer-events: none;
+}
+
+.backgroundLayer canvas {
+    display: block;
 }
 
 .button {
@@ -32,6 +46,11 @@
     color: var(--color-text);
     font: inherit;
     cursor: pointer;
+}
+
+.background .button {
+    margin-inline: 0;
+    font-size: 0.9rem;
 }
 
 .button:hover {

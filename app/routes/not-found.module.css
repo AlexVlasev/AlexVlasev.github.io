@@ -1,0 +1,6 @@
+/* Steering follows the mouse, so the hint would be misleading on touch screens. */
+@media (hover: none) {
+    .steeringHint {
+        display: none;
+    }
+}

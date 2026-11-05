@@ -7,15 +7,27 @@ export type Sketch = (p: p5, host: HTMLElement) => void;
 
 type P5SketchProps = {
     sketch: Sketch;
-    label: string;
-    // For sketches that animate indefinitely: fills the page width and can be paused.
-    continuous?: boolean;
+    // inline: sized by the sketch and stops on its own.
+    // wide: fills the page width and animates until paused.
+    // background: a decorative layer behind the page that animates until paused.
+    variant?: "inline" | "wide" | "background";
+    // Describes the sketch to screen readers. Not needed for a background.
+    label?: string;
+    // Changing this redraws the sketch, including while it's paused.
+    redrawKey?: string;
 };
 
-export function P5Sketch({ sketch, label, continuous = false }: P5SketchProps) {
+export function P5Sketch({
+    sketch,
+    variant = "inline",
+    label,
+    redrawKey,
+}: P5SketchProps) {
     const host = useRef<HTMLDivElement>(null);
     const instance = useRef<p5 | null>(null);
     const [paused, setPaused] = useState(false);
+    const pausable = variant !== "inline";
+    const decorative = variant === "background";
 
     // p5 needs a browser, so it can only load after the pre-rendered page has mounted.
     useEffect(() => {
@@ -27,7 +39,7 @@ export function P5Sketch({ sketch, label, continuous = false }: P5SketchProps) {
             instance.current = new P5((p) => sketch(p, element), element);
 
             if (
-                continuous &&
+                pausable &&
                 window.matchMedia("(prefers-reduced-motion: reduce)").matches
             ) {
                 instance.current.noLoop();
@@ -40,7 +52,11 @@ export function P5Sketch({ sketch, label, continuous = false }: P5SketchProps) {
             instance.current?.remove();
             instance.current = null;
         };
-    }, [sketch, continuous]);
+    }, [sketch, pausable]);
+
+    useEffect(() => {
+        instance.current?.redraw();
+    }, [redrawKey]);
 
     const togglePaused = () => {
         if (paused) {
@@ -52,9 +68,15 @@ export function P5Sketch({ sketch, label, continuous = false }: P5SketchProps) {
     };
 
     return (
-        <div className={continuous ? styles.continuous : styles.sketch}>
-            <div ref={host} role="img" aria-label={label} />
-            {continuous && (
+        <div className={styles[variant]}>
+            <div
+                ref={host}
+                className={decorative ? styles.backgroundLayer : undefined}
+                role={decorative ? undefined : "img"}
+                aria-label={label}
+                aria-hidden={decorative || undefined}
+            />
+            {pausable && (
                 <button
                     type="button"
                     className={styles.button}

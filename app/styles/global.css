@@ -17,6 +17,8 @@
     --color-muted: #a0a6b1;
     --color-accent: #8db8e2;
     --color-border: #3a404c;
+    --color-terrain: #4a5160;
+    --terrain-ridge-shading: 1.6;
 }
 
 [data-theme="light"] {
@@ -27,6 +29,8 @@
     --color-muted: #5c626b;
     --color-accent: #2c5f96;
     --color-border: #d8d6cf;
+    --color-terrain: #c4c3bb;
+    --terrain-ridge-shading: 0.7;
 }
 
 *,
