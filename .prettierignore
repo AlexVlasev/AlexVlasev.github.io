@@ -1,9 +1,5 @@
-# Legacy site and old React code, until the migration replaces them.
-src/
-scripts/
-content/
-json/
-*.html
-README.md
+# The old site, until the migration replaces it.
+public/
+legacy/
 
 package-lock.json

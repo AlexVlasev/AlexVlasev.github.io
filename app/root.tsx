@@ -13,6 +13,11 @@ import type { Route } from "./+types/root";
 
 import "~/styles/global.css";
 
+// Hosts also serve pre-rendered pages at /index.html, which the router would treat as an unknown path.
+const normalizeIndexPathScript = `if (location.pathname.endsWith("/index.html")) {
+    history.replaceState(null, "", location.pathname.slice(0, -10) + location.search + location.hash);
+}`;
+
 export const links: Route.LinksFunction = () => [
     { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
 ];
@@ -22,6 +27,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
         // The init script can change data-theme before React hydrates.
         <html lang="en" data-theme="dark" suppressHydrationWarning>
             <head>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: normalizeIndexPathScript,
+                    }}
+                />
                 <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
                 <meta charSet="utf-8" />
                 <meta

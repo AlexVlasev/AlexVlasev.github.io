@@ -7,8 +7,8 @@ import tseslint from "typescript-eslint";
 
 export default tseslint.config(
     {
-        // Legacy site and old React code, until the migration replaces them.
-        ignores: ["build/", ".react-router/", "src/", "scripts/", "*.html"],
+        // public/ and legacy/ hold the old site until the migration replaces it.
+        ignores: ["build/", ".react-router/", "public/", "legacy/"],
     },
     js.configs.recommended,
     tseslint.configs.recommended,
