@@ -1,8 +1,6 @@
 export type NavLinkItem = {
     label: string;
     href: string;
-    // Legacy pages are separate HTML files, so they need a full page load.
-    legacy?: boolean;
 };
 
 export type NavGroup = {

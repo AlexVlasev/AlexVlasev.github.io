@@ -9,14 +9,6 @@ type SiteLinkProps = {
 };
 
 export function SiteLink({ item, className, onClick }: SiteLinkProps) {
-    if (item.legacy) {
-        return (
-            <a href={item.href} className={className} onClick={onClick}>
-                {item.label}
-            </a>
-        );
-    }
-
     return (
         <NavLink
             to={item.href}

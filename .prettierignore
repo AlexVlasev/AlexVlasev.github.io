@@ -1,5 +1,1 @@
-# The old site, until the migration replaces it.
-public/
-legacy/
-
 package-lock.json
