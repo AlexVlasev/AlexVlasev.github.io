@@ -47,9 +47,8 @@ export default function Home() {
             <p>
                 I built the site myself, hosted it on GitHub Pages and use
                 Squarespace for the domain. The site is being rebuilt with React
-                and is under construction, so this is not the final experience,
-                and some pages still have the old look. Feel free to check out
-                the different pages.
+                and is under construction, so this is not the final experience.
+                Feel free to check out the different pages.
             </p>
         </>
     );

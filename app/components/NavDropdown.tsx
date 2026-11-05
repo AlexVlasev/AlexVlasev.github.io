@@ -1,4 +1,5 @@
 import { useEffect, useId, useRef, useState } from "react";
+import { useLocation } from "react-router";
 
 import { SiteLink } from "~/components/SiteLink";
 import type { NavGroup } from "~/navigation";
@@ -15,6 +16,10 @@ export function NavDropdown({ group, onNavigate }: NavDropdownProps) {
     const container = useRef<HTMLLIElement>(null);
     const button = useRef<HTMLButtonElement>(null);
     const panelId = useId();
+    const { pathname } = useLocation();
+    const containsCurrentPage = group.items.some(
+        (item) => item.href === pathname.replace(/\/$/, ""),
+    );
 
     useEffect(() => {
         if (!open) return;
@@ -45,6 +50,7 @@ export function NavDropdown({ group, onNavigate }: NavDropdownProps) {
                 ref={button}
                 type="button"
                 className={styles.link}
+                data-current={containsCurrentPage}
                 aria-expanded={open}
                 aria-controls={panelId}
                 onClick={() => setOpen(!open)}

@@ -3,6 +3,9 @@ import { Link, Navigate, useLocation } from "react-router";
 // GitHub Pages has no server-side redirects, so a migrated page's old URL lands here through 404.html.
 const movedPages: Record<string, string> = {
     "/about.html": "/about",
+    "/parkour.html": "/life/parkour",
+    "/ballroom.html": "/life/ballroom",
+    "/photography.html": "/life/photography",
 };
 
 export function meta() {

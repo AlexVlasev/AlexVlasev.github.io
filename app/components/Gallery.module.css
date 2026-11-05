@@ -1,0 +1,15 @@
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: 1rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}

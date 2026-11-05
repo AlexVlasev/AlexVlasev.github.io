@@ -50,9 +50,9 @@ export const navigation: (NavLinkItem | NavGroup)[] = [
     {
         label: "Lifestyle",
         items: [
-            { label: "Parkour", href: "/parkour.html", legacy: true },
-            { label: "Ballroom Dancing", href: "/ballroom.html", legacy: true },
-            { label: "Photography", href: "/photography.html", legacy: true },
+            { label: "Parkour", href: "/life/parkour" },
+            { label: "Ballroom Dancing", href: "/life/ballroom" },
+            { label: "Photography", href: "/life/photography" },
         ],
     },
     { label: "About", href: "/about" },

@@ -3,6 +3,10 @@ declare module "*.mdx" {
         title: string;
         description: string;
     };
-    const MDXContent: React.ComponentType;
+    const MDXContent: React.ComponentType<{
+        components?: {
+            a?: React.ComponentType<React.ComponentProps<"a">>;
+        };
+    }>;
     export default MDXContent;
 }

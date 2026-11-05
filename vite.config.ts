@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+
 import mdx from "@mdx-js/rollup";
 import { reactRouter } from "@react-router/dev/vite";
 import remarkFrontmatter from "remark-frontmatter";
@@ -15,6 +17,9 @@ export default defineConfig({
         reactRouter(),
     ],
     resolve: {
-        tsconfigPaths: true,
+        alias: {
+            // Must match "paths" in tsconfig.json. Vite's tsconfigPaths option skips .mdx files.
+            "~": fileURLToPath(new URL("./app", import.meta.url)),
+        },
     },
 });
