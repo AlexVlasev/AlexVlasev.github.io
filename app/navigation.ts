@@ -15,15 +15,10 @@ export const navigation: (NavLinkItem | NavGroup)[] = [
     {
         label: "Demos",
         items: [
-            {
-                label: "A* Algorithm Demo",
-                href: "/a-star-demo.html",
-                legacy: true,
-            },
+            { label: "A* Algorithm Demo", href: "/demos/a-star" },
             {
                 label: "Perlin Noise Terrain Demo",
-                href: "/perlin-noise-demo.html",
-                legacy: true,
+                href: "/demos/perlin-noise",
             },
         ],
     },
