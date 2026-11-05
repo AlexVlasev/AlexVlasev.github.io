@@ -7,12 +7,22 @@ import {
     ScrollRestoration,
 } from "react-router";
 
+import { themeInitScript } from "~/theme";
+
 import type { Route } from "./+types/root";
+
+import "~/styles/global.css";
+
+export const links: Route.LinksFunction = () => [
+    { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+];
 
 export function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en">
+        // The init script can change data-theme before React hydrates.
+        <html lang="en" data-theme="dark" suppressHydrationWarning>
             <head>
+                <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
                 <meta charSet="utf-8" />
                 <meta
                     name="viewport"

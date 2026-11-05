@@ -1,0 +1,21 @@
+.main {
+    width: 100%;
+    max-width: calc(var(--content-width) + 2 * var(--mobile-gutter));
+    margin: 0 auto;
+    padding: 2.5rem var(--mobile-gutter) 4rem;
+}
+
+.skipLink {
+    position: absolute;
+    z-index: 20;
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+    transform: translateY(-200%);
+}
+
+.skipLink:focus {
+    transform: none;
+}
