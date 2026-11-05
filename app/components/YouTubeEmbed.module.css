@@ -1,0 +1,18 @@
+.figure {
+    margin: 1.5rem 0;
+}
+
+.player {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+}
+
+.caption {
+    margin-top: 0.5rem;
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
