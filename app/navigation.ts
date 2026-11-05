@@ -55,7 +55,7 @@ export const navigation: (NavLinkItem | NavGroup)[] = [
             { label: "Photography", href: "/photography.html", legacy: true },
         ],
     },
-    { label: "About", href: "/about.html", legacy: true },
+    { label: "About", href: "/about" },
 ];
 
 export const socialLinks = [
