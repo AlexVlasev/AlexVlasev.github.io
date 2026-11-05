@@ -14,10 +14,7 @@ export function pageMeta({ title, description }: MdxFrontmatter) {
 }
 
 function MdxLink({ href = "", children, ...props }: ComponentProps<"a">) {
-    // Legacy .html pages are separate documents, so the router can't navigate to them.
-    const isRoute = href.startsWith("/") && !href.endsWith(".html");
-
-    return isRoute ? (
+    return href.startsWith("/") ? (
         <Link to={href} {...props}>
             {children}
         </Link>

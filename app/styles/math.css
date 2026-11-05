@@ -1,0 +1,6 @@
+@import "katex/dist/katex.min.css";
+
+.katex-display {
+    padding: 0.25rem 0;
+    overflow: auto hidden;
+}

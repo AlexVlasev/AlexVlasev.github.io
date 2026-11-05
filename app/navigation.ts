@@ -30,21 +30,12 @@ export const navigation: (NavLinkItem | NavGroup)[] = [
     {
         label: "Mathematics",
         items: [
-            {
-                label: "Lattice Walk Enumeration",
-                href: "/masters.html",
-                legacy: true,
-            },
+            { label: "Lattice Walk Enumeration", href: "/math/lattice-walks" },
             {
                 label: "Electromagnetic Operators",
-                href: "/operators.html",
-                legacy: true,
+                href: "/math/electromagnetic-operators",
             },
-            {
-                label: "Scaling of Human Processes",
-                href: "/scaling.html",
-                legacy: true,
-            },
+            { label: "Scaling of Human Processes", href: "/math/scaling" },
         ],
     },
     {
