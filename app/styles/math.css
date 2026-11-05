@@ -1,6 +1,14 @@
 @import "katex/dist/katex.min.css";
 
+/* Wide equations can extend past the reading column, up to the full page width. */
 .katex-display {
+    --equation-width: min(
+        calc(100vw - 2 * var(--mobile-gutter)),
+        var(--page-width)
+    );
+
+    width: var(--equation-width);
+    margin-inline: calc((100% - var(--equation-width)) / 2);
     padding: 0.25rem 0;
     overflow: auto hidden;
 }

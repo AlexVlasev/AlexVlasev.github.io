@@ -14,7 +14,7 @@ After a lot of tinkering, I found a way to capture all such walks' behaviours in
 Consider a sequence $(w_n)$ indexed by $n$. We can define its **generating function** $W(x)$ to be defined as $W(x) = \sum_n w_n x^n$, where the index varies over that of the sequence. For the multivariate case in $m$ dimensions, we have a sequence $(w_{n_1,\ldots,n_m})$ with generating function
 
 $$
-W(x_1,\ldots,x_m) = \sum_{n_1,\ldots,n_m} w_{n_1,\dots,n_m}^{n_1,\ldots,n_m}.
+W(x_1,\ldots,x_m) = \sum_{n_1,\ldots,n_m} w_{n_1,\ldots,n_m} x_1^{n_1} \cdots x_m^{n_m}.
 $$
 
 We will use such sequences and generating functions to enumerate lattice walks in $m$ dimensions. We will use the symbol $Q$ for the generating function.

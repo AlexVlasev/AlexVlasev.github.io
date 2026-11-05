@@ -52,7 +52,7 @@ They satisfy Maxwell's equations
 $$
 \begin{align*}
 \nabla\times \ve_m &= -\mu_0 \del_t \vh_m = i\om \mu_0 \vh_m\\
-\nabla \times \vh_m &= \e_0\del_t\e*\ve_m = - i \om \e_0\e*\ve_m
+\nabla \times \vh_m &= \e_0\del_t\e^*\ve_m = - i \om \e_0\e^*\ve_m
 \end{align*}
 $$
 
@@ -75,7 +75,7 @@ Next we write the operators
 $$
 \begin{align*}
 \Gamma_p &= \begin{bmatrix}0 & \delpt\times \\ \delpt\times & 0 \end{bmatrix},\quad \Gamma_z = \begin{bmatrix}0 & i\hat{z}\times \\ i\hat{z}\times & 0 \end{bmatrix} \\
-T &= \begin{bmatrix}\e_0\e* & 0 \\ 0 & -\mu_0 \end{bmatrix},\quad \mc{L}_{\om} = wT - \Gamma_p =  \begin{bmatrix}w\e_0\e* &-\delpt\times  \\ -\delpt\times & -w\mu_0 \end{bmatrix}
+T &= \begin{bmatrix}\e_0\e^* & 0 \\ 0 & -\mu_0 \end{bmatrix},\quad \mc{L}_{\om} = wT - \Gamma_p =  \begin{bmatrix}w\e_0\e^* &-\delpt\times  \\ -\delpt\times & -w\mu_0 \end{bmatrix}
 \end{align*}
 $$
 
@@ -102,9 +102,9 @@ Let $\phi_n^+$ be a solution to $(\mc{L}_{\om}^+-\beta_{n\om}^*\Gamma_z)\phi_n^+
 First, we show that
 
 $$
-\begin{equation}
+\begin{equation*}
 \inn{\Gamma_z\phi_n^+,\phi_m} = \inn{\phi_n^+,\Gamma_z\phi_m}
-\end{equation}
+\end{equation*}
 $$
 
 We have
@@ -158,17 +158,17 @@ $$
 Thus we have
 
 $$
-\begin{equation}
+\begin{equation*}
     \iint_S \delz \cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s = 0
-\end{equation}
+\end{equation*}
 $$
 
 From another point of view, if $\beta_{n\om} \neq \beta_{m\om}$, we have
 
 $$
-\begin{equation}
+\begin{equation*}
 \inn{\phi_n^+, \Gamma_z\phi_m} = \iint_S \hat{z} \cdot (\ve_n^{+*}\times\vh_m + \ve_m\times \vh_n^{+*})\dd s = 0
-\end{equation}
+\end{equation*}
 $$
 
 It is desirable to have the stronger condition $n\neq m$ imply the above identity. This is the same as requiring that the $\beta$'s have no multiplicity.
@@ -198,8 +198,8 @@ $$
 \inn{(T-T^+)\phi_n^+, \phi_m}
     &= \inn{T\phi_n^+, \phi_m} - \inn{T^+\phi_n^+, \phi_m}\\
     &= \inn{T\phi_n^+, \phi_m} - \inn{\phi_n^+, T\phi_m}\\
-    &= \iint_S \e_0\cdot \e*\ve_n^{+*}\cdot\ve_m - \mu_0 \vh_n^{+*}\cdot \vh_m \dd s - \iint_S  \e_0 \ve_n^{+*}\cdot\e*\ve_m  - \mu_0\vh_n^{+*}\cdot  \om\mu_0\vh_m\dd s \\
-    &= \e_0\iint_S (\ve_m\cdot \e*\ve_n^{+*}  - \ve_n^{+*}\cdot\e*\ve_m)\dd s \\
+    &= \iint_S \e_0\cdot \e^*\ve_n^{+*}\cdot\ve_m - \mu_0 \vh_n^{+*}\cdot \vh_m \dd s - \iint_S  \e_0 \ve_n^{+*}\cdot\e^*\ve_m  - \mu_0\vh_n^{+*}\cdot  \om\mu_0\vh_m\dd s \\
+    &= \e_0\iint_S (\ve_m\cdot \e^*\ve_n^{+*}  - \ve_n^{+*}\cdot\e^*\ve_m)\dd s \\
 \end{align*}
 $$
 
@@ -207,7 +207,7 @@ Next, we use the definition for the convolution and find that
 
 $$
 \begin{align*}
- \ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*}
+ \ve_n^{+*}\cdot \e^*\ve_m  - \ve_m \cdot \e^*\ve_n^{+*}
     &=\ve_n^{+*}\cdot\int_0^{\infty}\e(\tau)\ve_m e^{i\om\tau} \dd  \tau   -  \ve_m\cdot\int_0^{\infty}\e(\tau)\ve_n^{+*} e^{-i\om\tau} \dd  \tau\\
     &= \ve_n^{+*}\cdot \ve_m\int_0^{\infty} \e(\tau) (e^{i\om\tau} - e^{-i\om\tau}) \dd \tau\\
     &=2i\ve_n^{+*}\cdot \ve_m \int_0^{\infty} \e(\tau) \sin(\om\tau)\dd \tau
@@ -260,9 +260,9 @@ $$
 We'll first prove the following identity
 
 $$
-\begin{equation}
+\begin{equation*}
 i\delpt \cdot \Psi_{n,m,\om} = (\phi_{on}^+,\phi_m) - (\phi_n^+,\phi_{om})
-\end{equation}
+\end{equation*}
 $$
 
 We expand each expression
@@ -299,9 +299,9 @@ $$
 By inspection we see that the identity holds. This leads to the following identity
 
 $$
-\begin{equation}
+\begin{equation*}
 \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n^+, \phi_m} = i \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s
-\end{equation}
+\end{equation*}
 $$
 
 via
@@ -313,9 +313,9 @@ $$
 In my paper notes I try to simplify this. The $t$-dependence cancels out from both sides of the identity due to the conjugation. Since we integrate only over $x$ and $y$, the $z$-dependence also cancels out. Therefore, the functions depend only on $x$ and $y$. Depending on the form of the waves we might also be able to cancel out any complex values (like a phase constant with respect to $x,y$. We are left with a real expression on the left and an imaginary expression on the right. This gives that $\Gamma_{pt}$ is self-adjoint and
 
 $$
-\begin{equation}
+\begin{equation*}
  \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s = 0
-\end{equation}
+\end{equation*}
 $$
 
 We can proceed in another way too. Using Maxwell's equations we have
@@ -325,9 +325,9 @@ $$
 \nabla\cdot \Psi_{n,m,\om}
     &= \nabla\cdot (\ve_n^{+*}\times \vh_m + \ve_m\times\vh_n^{+*})\\
     &= \vh_m \cdot (\nabla \times \ve_n^{+})^* - \ve_n^{+*}\cdot \nabla \times \vh_m + \vh_n^{+*}\cdot\nabla\times \ve_m - \ve_m \cdot (\nabla \times \vh_n)^{+*}\\
-    &= \vh_m\cdot(i\om \mu_0 \vh_n^{+})^* - \ve_n^{+*}\cdot (-i\om\e_0\e*\ve_m) + \vh_n^{+*}\cdot(i\om\mu_0\vh_m) - \ve_m \cdot (-i\om\e_0\e*\ve_n^{+})^*\\
-    &= - i\om \mu_0 \vh_m\cdot \vh_n^{+*} + i\om\e_0\ve_n^{+*}\cdot \e*\ve_m + i\om\mu_0\vh_n^{+*}\cdot\vh_m - i\om\e_0\ve_m \cdot \e*\ve_n^{+*}\\
-    &=  i\om\e_0(\ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*})\\
+    &= \vh_m\cdot(i\om \mu_0 \vh_n^{+})^* - \ve_n^{+*}\cdot (-i\om\e_0\e^*\ve_m) + \vh_n^{+*}\cdot(i\om\mu_0\vh_m) - \ve_m \cdot (-i\om\e_0\e^*\ve_n^{+})^*\\
+    &= - i\om \mu_0 \vh_m\cdot \vh_n^{+*} + i\om\e_0\ve_n^{+*}\cdot \e^*\ve_m + i\om\mu_0\vh_n^{+*}\cdot\vh_m - i\om\e_0\ve_m \cdot \e^*\ve_n^{+*}\\
+    &=  i\om\e_0(\ve_n^{+*}\cdot \e^*\ve_m  - \ve_m \cdot \e^*\ve_n^{+*})\\
 \end{align*}
 $$
 
@@ -338,7 +338,7 @@ $$
   \iint_S \delpt \cdot \Psi_{n,m,\om}\dd s
     &=  \iint_S (\nabla-\delz) \cdot \Psi_{n,m,\om}\dd s\\
     &=  \iint_S \nabla \cdot \Psi_{n,m,\om} \dd s\\
-    & =  i\om\e_0\iint_S (\ve_n^{+*}\cdot \e*\ve_m  - \ve_m \cdot \e*\ve_n^{+*})\dd s\\
+    & =  i\om\e_0\iint_S (\ve_n^{+*}\cdot \e^*\ve_m  - \ve_m \cdot \e^*\ve_n^{+*})\dd s\\
     &= 2i\om\e_0 \int_0^{\infty} \e(\tau) \sin(\om\tau)\dd \tau\iint_S \ve_n^{+*}\cdot \ve_m\dd s
 \end{align*}
 $$
@@ -346,9 +346,9 @@ $$
 Finally
 
 $$
-\begin{equation}
+\begin{equation*}
     \inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n^+, \phi_m} =  i\om\inn{(T-T^+)\phi_n^+, \phi_m}
-\end{equation}
+\end{equation*}
 $$
 
 ## 3. Necessary Conditions on the Model
@@ -356,15 +356,15 @@ $$
 Suppose that
 
 $$
-\begin{equation}
+\begin{equation*}
  \vE(x,y,z,t) = \vE = \sum_{m}\int_{\om} A_{m,\om}(z) \ve_{m,\om}(x,y)\exp(i(\beta_{n\om}z-\om t) \dd \om = \sum_{m}\int_{\om} A_{m,\om}(z) \ve_{m,\om} \dd \om
-\end{equation}
+\end{equation*}
 $$
 
 $$
-\begin{equation}
+\begin{equation*}
  \vH(x,y,z,t) = \vH = \sum_{m}\int_{\om} A_{m,\om}(z) \vh_{m,\om}(x,y)\exp(i(\beta_{n\om}z-\om t) \dd \om = \sum_{m}\int_{\om} A_{m,\om}(z) \vh_{m,\om} \dd \om
-\end{equation}
+\end{equation*}
 $$
 
 We shall perform the following (hideous) calculation
@@ -395,17 +395,17 @@ $$
 Thus we have obtained the following identity
 
 $$
-\begin{equation}
+\begin{equation*}
  -\int\iint_S\nabla \cdot (\vE \times \vh_m^* + \vH \times \ve_m^*)\dd s\dd t = - \del_z A_{m,\om}(z)N_m(\om)  - \sum_n A_{n,\om}(z) \iint_S \delpt \cdot \Psi_{m,n,\om} \dd s
-\end{equation}
+\end{equation*}
 $$
 
 In the paper the authors make a statement equivalent to saying that the sum is 0. Another way to state this is
 
 $$
-\begin{equation}
+\begin{equation*}
 \sum_n A_{n,\om}(z)\inn{(\Gamma_{pt}-\Gamma_{pt}^+)\phi_n, \phi_m} = 0
-\end{equation}
+\end{equation*}
 $$
 
 If we let $\Phi = \begin{bmatrix}\vE & i \vH\end{bmatrix}^T$ We have
@@ -434,9 +434,9 @@ $$
 So, the authors' claim should be equivalent to saying
 
 $$
-\begin{equation}
+\begin{equation*}
     \inn{(\Gamma_{pt}-\Gamma_{pt}^+) \Phi,\Phi} = 0
-\end{equation}
+\end{equation*}
 $$
 
 Using some algebra we obtain
@@ -454,9 +454,9 @@ $$
 that is
 
 $$
-\begin{equation}
+\begin{equation*}
     Im(\inn{\Gamma_{pt}\Phi,\Phi}) = 0
-\end{equation}
+\end{equation*}
 $$
 
 We shall calculate this explicitly now. First
