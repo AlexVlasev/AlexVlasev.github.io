@@ -1,6 +1,6 @@
 # avlasev.com
 
-Personal website of Alexander Vlasev, live at [www.avlasev.com](https://www.avlasev.com). It's built with React, React Router and TypeScript, and pre-rendered to static files. Pushing to `master` deploys it to GitHub Pages.
+Personal website of Alexander Vlasev, live at [www.avlasev.com](https://www.avlasev.com). It's built with React, React Router and TypeScript, and pre-rendered to static files. Pushing to `main` deploys it to GitHub Pages.
 
 ## Development
 
