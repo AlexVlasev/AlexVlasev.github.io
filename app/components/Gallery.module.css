@@ -1,6 +1,6 @@
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 9rem), 1fr));
     gap: 1rem;
     margin: 2rem 0 0;
     padding: 0;
@@ -9,7 +9,77 @@
 
 .image {
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
     border-radius: var(--radius);
+}
+
+html:has(.modal[open]) {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+}
+
+.modal {
+    width: min(72rem, 100vw - 2rem);
+    height: min(52rem, 100dvh - 2rem);
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: var(--radius);
+    background: var(--color-surface);
+}
+
+.modal::backdrop {
+    background: rgb(0 0 0 / 75%);
+}
+
+.modalImage {
+    position: absolute;
+    inset: 0;
+    max-width: calc(100% - 2rem);
+    max-height: calc(100% - 2rem);
+    margin: auto;
+}
+
+.control {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.control:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.close {
+    top: 0.5rem;
+    right: 0.5rem;
+}
+
+.previous,
+.next {
+    top: calc(50% - 1.25rem);
+}
+
+.previous {
+    left: 0.5rem;
+}
+
+.next {
+    right: 0.5rem;
 }
