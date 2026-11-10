@@ -47,4 +47,5 @@ export const socialLinks = [
     { label: "GitHub", href: "https://github.com/AlexVlasev" },
     { label: "X", href: "https://x.com/alex_vlasev" },
     { label: "Instagram", href: "https://www.instagram.com/alex.vlasev" },
+    { label: "Substack", href: "https://alexvlasev.substack.com/" },
 ];
